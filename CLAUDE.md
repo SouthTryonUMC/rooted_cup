@@ -77,3 +77,60 @@ Source of truth: `rooted-tokens.css`. Paste it unchanged. Summary:
 ## Photography
 
 Hands, green coffee, the drum, chaff, the building, South Tryon light. Faces only with explicit revocable written consent. Never before-and-after. A cohort member is photographed the way a skilled worker is: at work, mid-task, competent, not looking at the camera for sympathy. No clasped hands, no stock, no one photographed to look poor.
+
+---
+
+## The site (built August 2026)
+
+Static, flat, no build step. Every page links `rooted-tokens.css` (untouched) then `rooted-site.css` (components; no new colors, radii, or shadows allowed in it) and `rooted-site.js` (the only script: scroll reveals, Netlify form AJAX with inline thank-you, lazy video start).
+
+### File map
+
+| File | What it is |
+|---|---|
+| index.html | Home. Hero is the bag front at viewport scale: origin at up to 120px Fraunces, the roast log on the taproot, waitlist CTA. Then the Roast room (video slot + the paragraph), the revenue order taproot, the waitlist form. |
+| coffee.html | Current offering, CSS bag mockup, full roast log, sourcing, subscription-interest form, wholesale form (`#wholesale`). |
+| work.html | The cohort. Roast-surface "The job" section, twelve-months taproot, the ladder, Homeboy lineage, how to join. |
+| church.html | STCUMC, Trinity's Table, theological register, the honest funding picture. |
+| support.html | Standing orders, giving, partner congregations, the funder facts table ("the site's back of the bag"). |
+| contact.html | Address, who-to-ask-for-what, pop-ups slot. |
+| rooted-site.css / rooted-site.js | Shared components and the one script. |
+| photo-*.svg | Honest placeholders for photographs not yet sourced (see below). |
+
+### Decisions a future session could undo by accident
+
+- **Surface switches:** exactly two mid-page Roast (dark) sections site-wide — index "Roasted on South Tryon" and work.html "The job". The dark footer is a constant frame (like the bag spine), not a third switch. Do not add more dark bands.
+- **Hero scale:** `clamp(3.25rem, 12vw, 7.5rem)`. Chosen deliberately; the kit h1 stays 56px everywhere else.
+- **Taproot appears only on ordered sequences:** the roast log (index hero, coffee.html), the revenue order (index), the twelve months (work.html). Nowhere else, ever.
+- **Green:** only the wordmark period, the nodes, the focus ring, and the node in the small mark. The period on `h1` headings is text-colored, not green.
+- **The wordmark** is live text (`.wm` span) on Fraunces with the kit's exact axes, same as the SVG logo files. Never retype it in another font or restyle the axes.
+- **Footer legal line is deliberately blank** (HTML comment marks the spot). No entity name until the legal structure is decided.
+- **Email everywhere is darryl@rootedclt.org** (per Darryl, Aug 2026). The usage sheet's older ddayson@wnccumc.net was superseded for the site; the kit file itself was left untouched.
+- **Draft lot:** Cajamarca, Peru / washed / medium and the cup notes are drafts from the kit's examples, marked with HTML comments on index.html and coffee.html. Replace with the real importer lot sheet before launch. Never print a made-up farm price; the log says "Published by the importer. Printed on the bag." until there is a real number.
+- **Commerce later:** coffee.html's bag panel has a marked CART SLOT comment; price/size/add-to-cart replace two paragraphs there. Nothing else moves.
+
+### Forms (Netlify)
+
+Two forms, both `data-netlify="true"`, honeypot `netlify-honeypot="bot-field"` with an off-canvas `.bh` field:
+
+- **waitlist** — name, email, zip (optional), `subscription` checkbox. Appears on index.html (`#waitlist`) and coffee.html (`#subscribe`, checkbox pre-checked). Same form name on both pages on purpose: one submission list in Netlify.
+- **wholesale** — organization, name, email, phone, kind, volume, notes. coffee.html `#wholesale` only; support.html links to it.
+
+JS intercepts submit, posts urlencoded to `/`, and reveals the matching `.form-done` block (`data-done` attribute names its id). With JS off, Netlify's default success page shows. Testing locally the fetch fails and the inline note says to email instead — that is expected off-Netlify behavior, not a bug.
+
+### Photography (not yet sourced)
+
+The sandbox that built the site could not reach Unsplash/Pexels/Coverr (network policy), so photo slots ship as kit-styled placeholder SVGs. Each placeholder file and its `<img>` carry comments naming the shot and the final filename:
+
+| Slot | Placeholder | Replace with | Shot |
+|---|---|---|---|
+| index + work | photo-drum.svg | drum.jpg (and drum-loop.mp4 + drum-poster.jpg for the video moment, index only) | the drum mid-roast / beans dropping |
+| coffee | photo-green-coffee.svg | green-coffee.jpg | green coffee in the jute bag |
+| work | photo-hands.svg | hands.jpg | hands at the cooling tray, **no identifiable face** |
+| church + contact | photo-south-tryon.svg | south-tryon.jpg | morning light on South Tryon; a real photo of 2516 beats stock |
+
+To swap: change the `src` (and drop "Placeholder: " from the alt). Compress to ~200KB (images) / under 2MB (video). Warm neutral, daylight, square corners. Record the photographer credit here when files land. **Never a stock photograph of a person standing in for a cohort member, a neighbor, or anyone at Trinity's Table — hands without an identifiable face are the limit.**
+
+### Fonts
+
+Self-hosted, which the kit explicitly allows ("Self-host or link in a way that does not break offline editing"). `rooted-fonts.css` declares @font-face for the `font-*.woff2` files in the root: Fraunces variable (300–700, all four axes, upright + italic), Instrument Sans variable (400–600 upright, 400 italic), Courier Prime (400, 700, italic 400). Latin + latin-ext subsets, downloaded from Google Fonts, all SIL OFL 1.1. Works fully offline and needs no third-party request. Offline or before load, the fallback stacks in the tokens render (Iowan Old Style/Georgia, Helvetica/Arial, Courier New) and nothing breaks. Do not switch pages back to the Google Fonts link tag; the kit HTML files keep theirs, which is fine — they are reference documents, not site pages.
