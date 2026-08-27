@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>rooted. — business card (print master)</title>
+<!-- Print master for the standard 3.5in x 2in business card.
+     Each .card below is the full-bleed size, 3.75in x 2.25in
+     (1/8in bleed on every side); the trim box is centered.
+     Front: the bag front, as a card. Back: the spine.
+     Generate the print PDF from this file (Chromium print to PDF,
+     background graphics ON, paper size 3.75in x 2.25in). -->
+<link rel="stylesheet" href="rooted-fonts.css">
+<link rel="stylesheet" href="rooted-tokens.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: #888; }
+  body { font-family: var(--font-body); }
+  @page { size: 3.75in 2.25in; margin: 0; }
+
+  .card {
+    width: 3.75in; height: 2.25in;
+    position: relative; overflow: hidden;
+    page-break-after: always;
+  }
+  @media screen { .card { margin: 24px auto; box-shadow: 0 0 0 1px #666; } }
+
+  /* Safe area: 1/8in bleed + 1/8in safety = 0.25in from the bleed edge. */
+  .safe { position: absolute; inset: 0.25in; }
+
+  .wm {
+    font-family: var(--font-display);
+    font-variation-settings: var(--wordmark-axes);
+    font-weight: 600; letter-spacing: -0.01em; line-height: 1;
+  }
+
+  /* ---------- FRONT: Paper, the bag front ---------- */
+  .front { background: var(--paper); color: var(--roast); }
+  .front .wm { font-size: 46px; }
+  .front .wm .dot { color: var(--green); }
+  .front .name {
+    font-family: var(--font-display); font-style: italic;
+    font-variation-settings: "opsz" 36, "wght" 400, "SOFT" 100, "WONK" 0;
+    font-size: 15.5px; line-height: 1.2;
+    margin-top: 9px;
+  }
+  .front .contact { position: absolute; left: 0; bottom: 0; }
+  .front .contact .k {
+    display: block; font-family: var(--font-label);
+    font-size: 6.5px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--bark); margin-bottom: 1px;
+  }
+  .front .contact .v {
+    font-family: var(--font-label); font-size: 9.5px; line-height: 1.3;
+    color: var(--roast); margin-bottom: 6px; display: block;
+  }
+  .front .contact .v:last-child { margin-bottom: 0; }
+  .front .tag {
+    position: absolute; right: 0; bottom: 0; text-align: right;
+    font-family: var(--font-body); font-size: 8px; line-height: 1.4;
+    color: var(--bark);
+  }
+
+  /* ---------- BACK: Roast, the spine ---------- */
+  .back { background: var(--roast); color: var(--paper); }
+  .back .safe {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 10px;
+  }
+  .back .wm { font-size: 44px; color: var(--paper); }
+  .back .wm .dot { color: var(--green); }
+  .back .spine { width: 1.9in; height: 12px; position: relative; }
+  .back .spine .line {
+    position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+    background: var(--paper); opacity: 0.5;
+  }
+  .back .spine .n {
+    position: absolute; top: 50%; transform: translate(-50%, -50%);
+    width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+  }
+  .back .tagline {
+    font-family: var(--font-label); font-size: 8px;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--chaff);
+  }
+  .back .url {
+    font-family: var(--font-label); font-size: 8.5px; color: var(--chaff);
+  }
+</style>
+</head>
+<body>
+
+<div class="card front">
+  <div class="safe">
+    <div class="wm">rooted<span class="dot">.</span></div>
+    <div class="name">Darryl Dayson</div>
+    <div class="contact">
+      <span class="k">Email</span>
+      <span class="v">darryl@rootedclt.org</span>
+      <span class="k">Phone</span>
+      <span class="v">(980) 785-4280</span>
+    </div>
+    <div class="tag">Good work.<br>Good coffee.<br>Good news.</div>
+  </div>
+</div>
+
+<div class="card back">
+  <div class="safe">
+    <div class="wm">rooted<span class="dot">.</span></div>
+    <div class="spine">
+      <span class="line"></span>
+      <span class="n" style="left: 14%"></span>
+      <span class="n" style="left: 50%"></span>
+      <span class="n" style="left: 86%"></span>
+    </div>
+    <div class="tagline">Good work &middot; Good coffee &middot; Good news</div>
+    <div class="url">rootedclt.org</div>
+  </div>
+</div>
+
+</body>
+</html>

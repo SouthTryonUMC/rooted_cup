@@ -149,6 +149,15 @@ mark the slots (hero strip, 02, 04, 05) for real photographs later. Never a
 stock portrait standing in for a person; hands with no identifiable face are
 the limit. The photo-*.svg placeholders remain for the v1 pages only.
 
+### Print masters
+
+`rooted-card.html` is the business card (3.5in x 2in trim;
+full-bleed 3.75in x 2.25in). Front is the bag front: wordmark, name in the
+origin-line italic, Courier contact block, tagline bottom right. Back is the
+spine on Roast with rootedclt.org. Regenerate print files with Chromium
+print-to-PDF at 3.75in x 2.25in, background graphics on, or screenshot at
+device scale 6.25 for 600 DPI PNGs.
+
 ### The v1 pages — kept, unlinked
 
 coffee.html, work.html, church.html, support.html, contact.html remain in the
