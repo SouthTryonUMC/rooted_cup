@@ -33,7 +33,7 @@ Short sentences. Concrete nouns. "We." Explain the business by how the money mov
 **Fixed lines, use as written:**
 
 - Tagline: Good work. Good coffee. Good news.
-- The paragraph: rooted is a neighborhood enterprise in South Charlotte. We roast coffee, we hire and train neighbors to do the work, and the people who live here help run it. Most of the people we hire have been through the justice system. We hire them as roasters, and roaster is the job title.
+- The paragraph: rooted is a neighborhood enterprise in South Charlotte. We roast coffee, we hire and train neighbors to do the work, and the people who live here help run it.
 - The church: rooted grew out of South Tryon Community United Methodist Church and the neighbors of Brookhill Village and Southside.
 - The honest number: Year one, the coffee pays part of the wages. Not all of them.
 - Sign-off: Let's grow something beautiful together. Stay rooted.
