@@ -80,6 +80,88 @@ Hands, green coffee, the drum, chaff, the building, South Tryon light. Faces onl
 
 ---
 
+## The site (v2, August 2026 — one landing page)
+
+The site is **index.html alone**: a single landing page structured as the six
+stages of a roast. Direction approved by Darryl (Aug 2026), superseding the
+six-page site below. It links `rooted-fonts.css`, `rooted-tokens.css`
+(now v1.1 — see Ember), `rooted-landing.css`, and `rooted-landing.js`.
+
+### The stage flow (the page's spine)
+
+00 Green (hero, Paper) → 01 Drying (what rooted is, Paper-2) → 02 First crack
+(how we work, **Ember**) → 03 Development (the enterprise, Roast-2) → 04 Drop
+(the longer plan, Roast) → 05 Cupping (the conversation + form, Roast) →
+footer (Roast). **The page darkens the way a roast does — that arc is the
+design.** The old "two dark bands site-wide" rule applied to the v1 multi-page
+site and is superseded on index.html only.
+
+### Ember (tokens v1.1)
+
+`--ember: #E8A33C`, appended to rooted-tokens.css with computed ratios, per
+Darryl. The rule: Ember is a full surface carrying Roast text (7.93), or an
+accent on the dark surfaces (links, the send button; 7.93 on Roast). It is
+NEVER text or graphic on Paper (1.88), never under Green (2.33), never
+carries a node. Green keeps its jobs: the period, the nodes, the focus ring
+(except on the Ember surface, where the focus ring swaps to Roast).
+
+### The rail (the taproot, reinterpreted)
+
+The fixed left rail (≥1040px) is the taproot as a roast gauge: Paper surface
+always (so Green nodes always pass), spine + six nodes, active node at full
+node-size, Fraunces temperature readout in °C (21/160/196/207/212/—).
+On mobile it is the bottom-left chip. It is aria-hidden (decorative duplicate
+of the section tags). It never branches, never decorates anything unordered.
+
+### Copy decisions (Darryl, Aug 2026)
+
+- **No lot, no blend named anywhere.** The site promises roasting, not a bean.
+- **The paragraph** (fixed, per Darryl's own edit): "rooted is a neighborhood
+  enterprise in South Charlotte. We roast coffee, we hire and train neighbors
+  to do the work, and the people who live here help run it."
+- **Hiring, two facts kept deliberately apart** so they never fuse into one
+  claim about the neighborhoods: (a) in 01 Drying — most of the people we
+  hire live in Brookhill Village or Southside; (b) in 03 Development — many
+  of the people we hire are coming home from incarceration; roaster is the
+  job title. Do not merge these into adjacent sentences.
+- **Kit-compliant rewrites of the reference copy** (do not revert): no
+  "neighborhood-led / coalition-built", no cooperative sentence (neither plan
+  nor denial), no "a ministry of" — the church line is the fixed
+  "rooted grew out of…" sentence, in 04 and the footer.
+- Confirmed facts (Darryl, Aug 2026): Homeboy Industries lineage; Deep Time
+  at Trinity UMC, Asheville, coffee social enterprise since 2023; equipment
+  specified, compliance pathway mapped, raising toward launch.
+- The sign-off appears as the 05 stageword ("Let's grow something beautiful
+  together.") + footer "Stay rooted."
+
+### The form (Netlify)
+
+One form, `name="rooted-site"`: name, organization, email, interest select
+(coffee / wholesale / funding / partnership / neighborhood / press / other),
+message. Honeypot `bot-field`, AJAX submit with inline confirmation in
+rooted-landing.js; with JS off, Netlify's default success page. Off-Netlify
+the fetch fails and the inline message says to email — expected, not a bug.
+
+### Photos
+
+**None, by decision.** Type and the surfaces carry the page. HTML comments
+mark the slots (hero strip, 02, 04, 05) for real photographs later. Never a
+stock portrait standing in for a person; hands with no identifiable face are
+the limit. The photo-*.svg placeholders remain for the v1 pages only.
+
+### The v1 pages — kept, unlinked
+
+coffee.html, work.html, church.html, support.html, contact.html remain in the
+repo per Darryl ("kept and unlinked"): nothing links to them from index.html.
+They still use rooted-site.css / rooted-site.js (untouched) and still carry
+their Netlify forms (waitlist, wholesale). Their nav links point at
+index.html, which is now the landing page. Do not delete them; do not link
+them without asking.
+
+---
+
+## The v1 site (superseded, kept for reference)
+
 ## The site (built August 2026)
 
 Static, flat, no build step. Every page links `rooted-tokens.css` (untouched) then `rooted-site.css` (components; no new colors, radii, or shadows allowed in it) and `rooted-site.js` (the only script: scroll reveals, Netlify form AJAX with inline thank-you, lazy video start).

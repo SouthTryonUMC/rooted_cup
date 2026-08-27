@@ -105,3 +105,17 @@
 @media (prefers-reduced-motion: reduce) {
   :root { --dur: 0ms; }
 }
+
+/* ---- v1.1 addendum (approved by Darryl, Aug 2026): Ember ----
+   Green is the color of coffee before it is roasted. Ember is coffee at
+   first crack. Contrast, computed:
+     Roast text on an Ember surface  7.93  passes AA
+     Ember as accent on Roast        7.93  passes AA
+     Ember as accent on Roast-2      7.37  passes AA
+     Ember on Paper                  1.88  fails — never
+     Green on Ember                  2.33  fails — never
+   The rule: Ember is a full surface carrying Roast text, or an accent on
+   the dark surfaces (a link, a button, a focus ring there). It is never
+   text or graphic on Paper, and it never carries a node. Green keeps its
+   jobs untouched: the period, the nodes. */
+:root { --ember: #E8A33C; }

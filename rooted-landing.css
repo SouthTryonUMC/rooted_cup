@@ -1,0 +1,273 @@
+/* rooted. landing page styles — v2, August 2026.
+   One page, six roast stages. Every value derives from rooted-tokens.css
+   (including the v1.1 Ember addendum). No new colors, no radii, no shadows.
+   The old multi-page styles live untouched in rooted-site.css for the
+   kept-but-unlinked interior pages. */
+
+/* ---- Base ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--roast);
+  font-family: var(--font-body);
+  font-size: var(--body-size-m);
+  line-height: var(--body-lh);
+  font-weight: var(--body-wght);
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 821px) { body { font-size: var(--body-size); } }
+img, svg { display: block; max-width: 100%; height: auto; }
+p { max-width: var(--measure); margin: 0 0 var(--s-4); }
+p:last-child { margin-bottom: 0; }
+a { color: inherit; }
+:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+/* On the dark stages the green focus ring reads at 3.4; on Ember it fails,
+   so the Ember stage swaps the ring to Roast. */
+.sf-crack :focus-visible { outline-color: var(--roast); }
+
+.skip {
+  position: absolute; left: -9999px; top: var(--s-2); z-index: 90;
+  background: var(--roast); color: var(--paper);
+  padding: var(--s-2) var(--s-4); text-decoration: none;
+}
+.skip:focus-visible { left: var(--s-2); }
+
+/* ---- Shell. The fixed rail claims the left edge on wide screens. ---- */
+.shell { max-width: var(--page-max); margin-inline: auto; padding-inline: var(--page-margin-m); }
+@media (min-width: 821px) { .shell { padding-inline: var(--page-margin); } }
+@media (min-width: 1040px) { body { padding-left: 132px; } }
+
+.label {
+  font-family: var(--font-label); font-size: var(--label-size); line-height: var(--label-lh);
+  letter-spacing: var(--label-ls); text-transform: uppercase;
+}
+.log { font-family: var(--font-label); font-size: var(--log-size); line-height: var(--log-lh); }
+
+/* Wordmark: live text on Fraunces, the kit's exact axes. Never retype. */
+.wm {
+  font-family: var(--font-display);
+  font-variation-settings: var(--wordmark-axes);
+  font-weight: 600; letter-spacing: -0.01em; line-height: 1;
+  text-decoration: none;
+}
+.wm .dot { color: var(--green); }
+
+/* ---- The rail: the taproot as a fixed gauge. Always on Paper, so the
+   nodes always sit on a surface Green passes on. Reads as the bag spine
+   standing beside the page. Decorative duplicate of the section tags,
+   hence aria-hidden in the HTML. ---- */
+.rail {
+  position: fixed; left: 0; top: 0; bottom: 0; width: 132px; z-index: 60;
+  display: none; flex-direction: column;
+  background: var(--paper); color: var(--roast);
+  border-right: 1px solid var(--rule-light);
+  padding: var(--s-6) var(--s-4);
+}
+@media (min-width: 1040px) { .rail { display: flex; } }
+.rail .label { color: var(--bark); }
+.rail-spine { position: relative; flex: 1; width: var(--spine-width); background: var(--roast); margin: var(--s-6) 0 var(--s-6) var(--s-2); }
+.rail-node {
+  position: absolute; left: 50%; transform: translate(-50%, -50%);
+  width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+  transition: width var(--dur) var(--ease), height var(--dur) var(--ease);
+}
+.rail-node.on { width: var(--node-size); height: var(--node-size); }
+.rail-temp {
+  font-family: var(--font-display);
+  font-variation-settings: "opsz" 72, "wght" 600, "SOFT" 100, "WONK" 0;
+  font-size: 2.125rem; line-height: 1; letter-spacing: -0.02em;
+  margin-bottom: var(--s-1);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Mobile gauge chip. Same information, one line. */
+.chip {
+  position: fixed; left: var(--s-3); bottom: var(--s-3); z-index: 60;
+  background: var(--roast); color: var(--chaff);
+  border: 1px solid var(--rule-dark);
+  padding: var(--s-2) var(--s-3);
+  font-family: var(--font-label); font-size: var(--label-size);
+  letter-spacing: var(--label-ls); text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+@media (min-width: 1040px) { .chip { display: none; } }
+
+/* ---- Stages. The page darkens the way a roast does:
+   Paper -> Paper-2 -> Ember -> Roast-2 -> Roast. ---- */
+.stage { padding: clamp(4rem, 10vw, 8rem) 0; }
+.sf-green { background: var(--paper);   color: var(--roast); }
+.sf-dry   { background: var(--paper-2); color: var(--roast); }
+.sf-crack { background: var(--ember);   color: var(--roast); }
+.sf-dev   { background: var(--roast-2); color: var(--paper); }
+.sf-drop  { background: var(--roast);   color: var(--paper); }
+.sf-cup   { background: var(--roast);   color: var(--paper); border-top: 1px solid var(--rule-dark); }
+
+/* Secondary ink per surface, so captions never fall below AA. */
+.sf-green .dim, .sf-dry .dim { color: var(--bark); }
+.sf-crack .dim { color: var(--roast); opacity: .82; }
+.sf-dev .dim, .sf-drop .dim, .sf-cup .dim { color: var(--chaff); }
+
+/* Links: Ember carries accents on the dark stages only. */
+.sf-dev a, .sf-drop a, .sf-cup a { color: var(--ember); text-underline-offset: 3px; }
+.sf-green a, .sf-dry a, .sf-crack a { color: inherit; text-underline-offset: 3px; }
+
+/* Stage tag: the log line that opens every stage. */
+.tag {
+  display: flex; gap: var(--s-4); align-items: baseline;
+  font-family: var(--font-label); font-size: var(--label-size);
+  letter-spacing: var(--label-ls); text-transform: uppercase;
+  padding-bottom: var(--s-3); margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  border-bottom: 1px solid currentColor;
+}
+.tag span { margin-left: auto; }
+.sf-green .tag, .sf-dry .tag { color: var(--bark); border-color: var(--rule-light); }
+.sf-crack .tag { color: var(--roast); border-color: var(--roast); }
+.sf-dev .tag, .sf-drop .tag, .sf-cup .tag { color: var(--chaff); border-color: var(--rule-dark); }
+
+/* The big stage word. Fraunces, kit axes, leading that keeps descenders
+   apart — the reference's .78/-.06em is what made the letters bleed. */
+.stageword {
+  font-family: var(--font-display); font-weight: 600;
+  font-variation-settings: "opsz" 144, "wght" 620, "SOFT" 100, "WONK" 0;
+  font-size: clamp(2.75rem, 11vw, 9.5rem);
+  line-height: 0.95; letter-spacing: -0.02em;
+  margin: 0 0 clamp(1.75rem, 4vw, 3.5rem);
+  max-width: 12ch;
+}
+.stageword em { font-style: italic; font-weight: 500; }
+
+h2:not(.stageword) {
+  font-family: var(--font-display); font-weight: 500;
+  font-variation-settings: "opsz" 72, "wght" 500, "SOFT" 100, "WONK" 0;
+  font-size: var(--h2-size-m); line-height: var(--h2-lh); letter-spacing: var(--h2-ls);
+  margin: 0 0 var(--s-6);
+}
+@media (min-width: 821px) { h2:not(.stageword) { font-size: var(--h2-size); } }
+h3 {
+  font-family: var(--font-label); font-size: var(--label-size); line-height: var(--label-lh);
+  letter-spacing: var(--label-ls); text-transform: uppercase; font-weight: 400;
+  margin: 0 0 var(--s-2);
+}
+.sf-green h3, .sf-dry h3 { color: var(--bark); }
+.sf-dev h3, .sf-drop h3, .sf-cup h3 { color: var(--chaff); }
+
+.lede {
+  font-family: var(--font-display); font-weight: 400;
+  font-variation-settings: "opsz" 36, "wght" 420, "SOFT" 100, "WONK" 0;
+  font-size: clamp(1.375rem, 2.9vw, 2.125rem);
+  line-height: 1.3; letter-spacing: -0.015em;
+  max-width: 24ch;
+}
+
+.cols { display: grid; gap: clamp(1.5rem, 4vw, 3.5rem); }
+@media (min-width: 900px) { .cols { grid-template-columns: 1fr 1fr; gap: var(--gutter); } }
+@media (min-width: 900px) { .cols.wide { grid-template-columns: 1.15fr .85fr; } }
+
+/* ---- Hero ---- */
+.hero { padding-top: clamp(2.5rem, 7vw, 5rem); }
+.mark-h1 {
+  margin: 0;
+  font-size: clamp(4.75rem, 21vw, 15rem);
+  line-height: 0.95;
+  color: var(--roast);
+}
+.claim {
+  font-family: var(--font-display); font-weight: 600;
+  font-variation-settings: "opsz" 144, "wght" 600, "SOFT" 100, "WONK" 0;
+  font-size: clamp(1.5rem, 4.6vw, 3.625rem);
+  line-height: 1.08; letter-spacing: -0.02em;
+  margin: clamp(1.5rem, 4vw, 3rem) 0 0; max-width: 14ch;
+}
+.claim b { display: block; font-weight: 600; }
+.claim b:nth-child(2) { padding-left: .9em; }
+.claim b:nth-child(3) { padding-left: 1.8em; color: var(--bark); }
+.herofoot {
+  display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-12);
+  margin-top: clamp(2rem, 5vw, 3.5rem); padding-top: var(--s-4);
+  border-top: 1px solid var(--roast);
+  font-family: var(--font-label); font-size: var(--label-size);
+  letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--bark);
+}
+
+/* ---- Revenue rows (03). The order is the information. ---- */
+.chan { margin-top: clamp(2rem, 5vw, 3.5rem); border-top: 1px solid var(--rule-dark); }
+.row {
+  display: grid; grid-template-columns: auto 1fr; gap: var(--s-2) var(--s-6);
+  padding: var(--s-6) 0; border-bottom: 1px solid var(--rule-dark);
+}
+.row p { grid-column: 1 / -1; }
+@media (min-width: 780px) {
+  .row { grid-template-columns: 4rem 14rem 1fr; }
+  .row p { grid-column: auto; }
+}
+.row .n { font-family: var(--font-label); font-size: var(--label-size); letter-spacing: var(--label-ls); color: var(--chaff); padding-top: var(--s-1); }
+.row .row-t {
+  margin: 0; font-family: var(--font-display); font-weight: 600;
+  font-variation-settings: "opsz" 36, "wght" 600, "SOFT" 100, "WONK" 0;
+  font-size: 1.3125rem; letter-spacing: -0.015em; line-height: 1.25;
+  text-transform: none; color: inherit;
+}
+.row p { font-size: var(--small-size); line-height: var(--small-lh); color: var(--chaff); max-width: 50ch; margin: 0; }
+.chan-note { margin-top: var(--s-6); max-width: none; }
+
+/* ---- Form (05). Underline fields: 1px, square, current ink. ---- */
+.fld { margin-bottom: var(--s-6); }
+.fld label {
+  display: block; margin-bottom: var(--s-2);
+  font-family: var(--font-label); font-size: var(--label-size);
+  letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--chaff);
+}
+.fld input, .fld select, .fld textarea {
+  width: 100%; background: transparent; color: inherit;
+  border: 0; border-bottom: 1px solid var(--paper); border-radius: 0;
+  font-family: var(--font-body); font-size: 1rem; font-weight: 400;
+  padding: var(--s-2) 0; -webkit-appearance: none; appearance: none;
+}
+.fld select option { background: var(--roast); color: var(--paper); }
+.fld textarea { resize: vertical; min-height: 4.5rem; }
+.fld input:focus-visible, .fld select:focus-visible, .fld textarea:focus-visible {
+  outline: 0; border-bottom: 2px solid var(--ember);
+}
+.send {
+  background: var(--ember); color: var(--roast);
+  border: 0; border-radius: 0; cursor: pointer;
+  font-family: var(--font-body); font-weight: 600; font-size: var(--small-size);
+  padding: var(--s-4) var(--s-12); margin-top: var(--s-2);
+}
+.send:hover { background: var(--paper); }
+.send[disabled] { opacity: .5; cursor: default; }
+.msg { display: none; margin-top: var(--s-4); max-width: 44ch; }
+.msg.on { display: block; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.direct { margin-top: clamp(2rem, 4vw, 3rem); padding-top: var(--s-6); border-top: 1px solid var(--rule-dark); }
+.big-link {
+  display: block; margin-bottom: var(--s-2); text-decoration: none;
+  font-family: var(--font-display); font-weight: 600;
+  font-variation-settings: "opsz" 36, "wght" 600, "SOFT" 100, "WONK" 0;
+  font-size: clamp(1.25rem, 2.6vw, 1.875rem); letter-spacing: -0.02em;
+}
+.big-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---- Footer ---- */
+footer { background: var(--roast); color: var(--chaff); padding: clamp(2.5rem, 6vw, 4rem) 0; border-top: 1px solid var(--rule-dark); }
+.fmark { font-size: clamp(2.5rem, 9vw, 5.5rem); color: var(--paper); }
+.fnote { margin-top: var(--s-6); max-width: var(--measure); }
+.fnote .label { display: block; margin-top: var(--s-4); color: var(--chaff); }
+.fnote a { color: var(--chaff); }
+
+/* ---- Motion: hero rise on load, one reveal per stage. Nothing bounces. ---- */
+.rise { opacity: 0; transform: translateY(0.75rem); animation: rise 560ms var(--ease) forwards; }
+.rise.d1 { animation-delay: 90ms; }
+.rise.d2 { animation-delay: 180ms; }
+.rise.d3 { animation-delay: 270ms; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+.reveal { opacity: 0; transform: translateY(0.75rem); transition: opacity 560ms var(--ease), transform 560ms var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .rise, .reveal { opacity: 1; transform: none; animation: none; transition: none; }
+  .rail-node { transition: none; }
+}
+html:not(.js) .reveal { opacity: 1; transform: none; }
