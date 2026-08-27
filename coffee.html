@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coffee — rooted.</title>
+<meta name="description" content="The current offering from rooted: Cajamarca, Peru. Washed, medium. The roast log, subscriptions, and wholesale accounts.">
+<link rel="icon" href="rooted-favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="rooted-fonts.css">
+<link rel="stylesheet" href="rooted-tokens.css">
+<link rel="stylesheet" href="rooted-site.css">
+<script src="rooted-site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="shell">
+    <a class="wm" href="index.html" aria-label="rooted. — home">rooted<span class="dot">.</span></a>
+    <nav class="site-nav" aria-label="Site">
+      <ul>
+        <li><a href="coffee.html" aria-current="page">Coffee</a></li>
+        <li><a href="work.html">The Work</a></li>
+        <li><a href="church.html">The Church</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- DRAFT LOT throughout this page. Cajamarca / washed / medium comes from the
+       kit's examples. Replace origin, producer, elevation, and cup notes with the
+       real importer's lot sheet before launch. -->
+  <section class="page-head" aria-label="Current offering">
+    <div class="shell">
+      <p class="label rise">Current offering</p>
+      <h1 class="rise d1">Cajamarca, Peru.</h1>
+      <p class="origin-line rise d2">washed &middot; medium &middot; 340g</p>
+      <p class="rise d3" style="margin-top: var(--s-6);">High-grown lots from smallholder farms around Cajamarca, in the northern Peruvian Andes. Washed at the mill, dried slow, and roasted here to a medium that keeps the sweetness. In the cup: chocolate, dried apple, cane sugar.</p>
+    </div>
+  </section>
+
+  <!-- THE PRODUCT. The bag rendered from the kit's own CSS. This panel is laid
+       out so a real cart drops in where the waitlist button sits — price, size
+       picker, and add-to-cart replace the two paragraphs marked below. -->
+  <section class="band band--alt" aria-labelledby="bag-h">
+    <div class="shell">
+      <h2 id="bag-h" class="label" style="margin-bottom: var(--s-8);">The bag</h2>
+      <div class="cols-media">
+        <div class="bag reveal" role="img" aria-label="The rooted coffee bag: wordmark, origin line, and the roast log printed on the front">
+          <div class="valve"></div>
+          <div class="wm bwm">rooted<span class="dot">.</span></div>
+          <div class="borigin">Cajamarca, Peru<br>washed &middot; medium</div>
+          <div class="bspine"></div>
+          <div class="bn" style="top:180px"></div><div class="bl" style="top:178px"><span class="k">Origin</span>Cajamarca, Peru</div>
+          <div class="bn" style="top:224px"></div><div class="bl" style="top:222px"><span class="k">Process</span>Washed</div>
+          <div class="bn" style="top:268px"></div><div class="bl" style="top:266px"><span class="k">Roasted</span>The week it ships</div>
+          <div class="bn" style="top:312px"></div><div class="bl" style="top:310px"><span class="k">Cupped by</span>the cohort, Thursday</div>
+          <div class="wt">340g <small>12 OZ</small></div>
+          <div class="btag">Good work.<br>Good coffee.<br>Good news.</div>
+        </div>
+        <div>
+          <h3>What the bag tells you</h3>
+          <p style="margin-top: var(--s-4);">The front of the bag is the roast log. Origin, process, roast date, and who cupped it, in the order it happened. The back carries what the farmer was paid for this lot, from the importer&rsquo;s published sheet. The information a buyer wants and the information a funder wants are the same information, printed in the same place.</p>
+          <!-- CART SLOT. When commerce goes live, price + size + add-to-cart
+               replace the two paragraphs below. Nothing else on this page moves. -->
+          <p>Price is set at launch. Until then, the waitlist is the shelf.</p>
+          <p style="margin-top: var(--s-6);"><a class="btn" href="index.html#waitlist">Reserve the first roast</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE LOG, in full. An ordered sequence, so it rides the taproot. -->
+  <section class="band" aria-labelledby="log-h">
+    <div class="shell">
+      <h2 id="log-h">The roast log</h2>
+      <p style="margin-top: var(--s-4); margin-bottom: var(--s-8);">Everything below gets printed or published. Charge temperature and first crack stay in the roaster&rsquo;s notebook.</p>
+      <div class="cols-media">
+        <div class="taproot reveal" role="list" aria-label="The full roast log">
+          <div class="entry" role="listitem"><span class="node" aria-hidden="true"></span><div class="label">Origin</div><div class="log">Cajamarca, Peru</div></div>
+          <!-- Producer line: use the importer's named co-op or lot name here. -->
+          <div class="entry" role="listitem"><span class="node" aria-hidden="true"></span><div class="label">Producer</div><div class="log">Smallholder lots, named on the importer&rsquo;s sheet</div></div>
+          <div class="entry" role="listitem"><span class="node" aria-hidden="true"></span><div class="label">Process</div><div class="log">Washed</div></div>
+          <div class="entry" role="listitem"><span class="node" aria-hidden="true"></span><div class="label">Roast</div><div class="log">Medium</div></div>
+          <div class="entry" role="listitem"><span class="node" aria-hidden="true"></span><div class="label">Roasted</div><div class="log">The week it ships</div></div>
+          <div class="entry" role="listitem"><span class="node" aria-hidden="true"></span><div class="label">Cupped by</div><div class="log">The cohort, Thursday</div></div>
+          <div class="entry" role="listitem"><span class="node" aria-hidden="true"></span><div class="label">Farm price</div><div class="log">Published by the importer. Printed on the bag.</div></div>
+        </div>
+        <figure class="reveal">
+          <img class="photo" src="photo-green-coffee.svg" width="1200" height="800"
+               alt="Placeholder: green coffee in the bag it arrived in." loading="lazy">
+          <figcaption class="small">Green coffee is the color of the work before the roast.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCING. The fixed line, verbatim, plus why. -->
+  <section class="band" aria-labelledby="sourcing-h">
+    <div class="shell">
+      <h2 id="sourcing-h">Where the coffee comes from</h2>
+      <p style="margin-top: var(--s-4);">We buy from importers who publish what the farmer was paid, and we print it on the bag.</p>
+      <p>We don&rsquo;t use sourcing language we can&rsquo;t verify. A published price is a fact. It sits on the back of the bag next to our own honest numbers, and you can check it against the importer&rsquo;s sheet yourself.</p>
+    </div>
+  </section>
+
+  <!-- SUBSCRIPTIONS. Same Netlify form as the index waitlist, box pre-checked. -->
+  <section class="band band--alt" id="subscribe" aria-labelledby="sub-h">
+    <div class="shell">
+      <h2 id="sub-h">Subscriptions</h2>
+      <p style="margin-top: var(--s-4); margin-bottom: var(--s-8); max-width: var(--measure);">Recurring bags, monthly or every other week, starting after launch. Saying you want one now is not a commitment. It tells us how much coffee to plan the first roasts around.</p>
+
+      <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-done="sub-done" style="max-width: var(--measure);">
+        <input type="hidden" name="form-name" value="waitlist">
+        <p class="bh"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="s-name">Name</label>
+            <input class="field" id="s-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-row">
+            <label for="s-email">Email</label>
+            <input class="field" id="s-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-row">
+            <label for="s-zip">ZIP code <span class="small" style="display:inline; font-weight:400;">(optional)</span></label>
+            <input class="field" id="s-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code">
+          </div>
+          <div class="form-row" style="align-self: end;">
+            <label class="check"><input type="checkbox" name="subscription" value="yes" checked> I want a subscription</label>
+          </div>
+        </div>
+        <button class="btn" type="submit">Count me in</button>
+        <p class="form-note small" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="form-done" id="sub-done" hidden>
+        <h3>Noted, and thank you.</h3>
+        <p style="margin-top: var(--s-3);">You&rsquo;re on the waitlist with a subscription flag on your name. When subscriptions open, you choose the cadence then.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHOLESALE. The second Netlify form. Anchor accounts are the base. -->
+  <section class="band" id="wholesale" aria-labelledby="ws-h">
+    <div class="shell">
+      <h2 id="ws-h">Wholesale and institutional accounts</h2>
+      <p style="margin-top: var(--s-4); margin-bottom: var(--s-8); max-width: var(--measure);">Standing orders from churches, schools, offices, and caf&eacute;s are what we plan payroll around. We deliver on and around South Tryon and ship beyond it. Tell us what you pour now and roughly how much, and we&rsquo;ll bring samples when the roaster is hot.</p>
+
+      <form name="wholesale" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-done="ws-done" style="max-width: var(--measure);">
+        <input type="hidden" name="form-name" value="wholesale">
+        <p class="bh"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="ws-org">Organization</label>
+            <input class="field" id="ws-org" name="organization" type="text" autocomplete="organization" required>
+          </div>
+          <div class="form-row">
+            <label for="ws-name">Contact name</label>
+            <input class="field" id="ws-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-row">
+            <label for="ws-email">Email</label>
+            <input class="field" id="ws-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="form-row">
+            <label for="ws-phone">Phone <span class="small" style="display:inline; font-weight:400;">(optional)</span></label>
+            <input class="field" id="ws-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="form-row">
+            <label for="ws-kind">What you are</label>
+            <select class="field" id="ws-kind" name="kind">
+              <option>Church</option>
+              <option>School</option>
+              <option>Office</option>
+              <option>Caf&eacute; or restaurant</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="ws-volume">Coffee per week, roughly</label>
+            <select class="field" id="ws-volume" name="volume">
+              <option>Under 5 lb</option>
+              <option>5 to 15 lb</option>
+              <option>More than 15 lb</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-row wide">
+            <label for="ws-notes">Anything else</label>
+            <textarea class="field" id="ws-notes" name="notes" rows="4"></textarea>
+          </div>
+        </div>
+        <button class="btn" type="submit">Open an account</button>
+        <p class="form-note small" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="form-done" id="ws-done" hidden>
+        <h3>We&rsquo;ll be in touch.</h3>
+        <p style="margin-top: var(--s-3);">Expect an email from darryl@rootedclt.org within a few days. If the roaster is hot by then, it comes with a sample schedule.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot band" data-theme="dark">
+  <div class="shell">
+    <a class="wm" href="index.html" aria-label="rooted. — home">rooted<span class="dot">.</span></a>
+    <div class="foot-grid">
+      <div>
+        <p>rooted grew out of South Tryon Community United Methodist Church and the neighbors of Brookhill Village and Southside.</p>
+      </div>
+      <address>
+        <p class="small">2516 South Tryon Street<br>Charlotte, NC 28203</p>
+        <p class="small"><a href="mailto:darryl@rootedclt.org">darryl@rootedclt.org</a><br><a href="tel:+17046894591">(704) 689-4591</a></p>
+      </address>
+      <nav class="foot-nav" aria-label="Footer">
+        <ul>
+          <li><a href="coffee.html">Coffee</a></li>
+          <li><a href="work.html">The Work</a></li>
+          <li><a href="church.html">The Church</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="signoff">Let&rsquo;s grow something beautiful together. Stay rooted.</p>
+    <!-- Legal entity name goes here once the structure is decided.
+         Deliberately blank until then. Do not add a placeholder name. -->
+  </div>
+</footer>
+
+</body>
+</html>

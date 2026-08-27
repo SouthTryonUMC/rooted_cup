@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Placeholder for a photograph of green coffee">
+  <!-- PLACEHOLDER. Replace with green-coffee.jpg: unroasted green coffee in the
+       jute bag it arrived in, or a scoop of green beans. Daylight, warm neutral.
+       Pexels/Unsplash: "green coffee beans sack", "raw coffee beans burlap". -->
+  <rect width="1200" height="800" fill="#EDE4D5"/>
+  <line x1="600" y1="290" x2="600" y2="400" stroke="#5A4A40" stroke-width="3"/>
+  <circle cx="600" cy="368" r="14" fill="#4F7A3B"/>
+  <text x="600" y="452" text-anchor="middle" fill="#5A4A40" font-family="'Courier Prime','Courier New',monospace" font-size="20" letter-spacing="3">PHOTOGRAPH TO COME</text>
+  <text x="600" y="492" text-anchor="middle" fill="#5A4A40" font-family="'Courier Prime','Courier New',monospace" font-size="17">Green coffee in the bag it arrived in. Replace with green-coffee.jpg.</text>
+</svg>

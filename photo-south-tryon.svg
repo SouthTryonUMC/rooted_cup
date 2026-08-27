@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Placeholder for a photograph of South Tryon Street">
+  <!-- PLACEHOLDER. Replace with south-tryon.jpg: morning light on South Tryon,
+       ideally the church building from the sidewalk — a real photo of 2516 South
+       Tryon beats any stock. Stock fallback: "Charlotte street morning light". -->
+  <rect width="1200" height="800" fill="#EDE4D5"/>
+  <line x1="600" y1="290" x2="600" y2="400" stroke="#5A4A40" stroke-width="3"/>
+  <circle cx="600" cy="368" r="14" fill="#4F7A3B"/>
+  <text x="600" y="452" text-anchor="middle" fill="#5A4A40" font-family="'Courier Prime','Courier New',monospace" font-size="20" letter-spacing="3">PHOTOGRAPH TO COME</text>
+  <text x="600" y="492" text-anchor="middle" fill="#5A4A40" font-family="'Courier Prime','Courier New',monospace" font-size="17">Morning on South Tryon, the building from the sidewalk. Replace with south-tryon.jpg.</text>
+</svg>

@@ -1,0 +1,245 @@
+/* rooted. site styles — v1.0
+   Component layer only. Every value here is a token from rooted-tokens.css
+   or a composition of tokens. If a raw number appears, it is a layout ratio,
+   not a new design token. Do not add colors, radii, or shadows here. */
+
+/* ---- Base ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--body-size-m);
+  line-height: var(--body-lh);
+  font-weight: var(--body-wght);
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 821px) { body { font-size: var(--body-size); } }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  margin: 0;
+}
+h1 { font-size: var(--h1-size-m); line-height: var(--h1-lh); letter-spacing: var(--h1-ls); font-variation-settings: "opsz" 144, "wght" 500, "SOFT" 100, "WONK" 0; }
+h2 { font-size: var(--h2-size-m); line-height: var(--h2-lh); letter-spacing: var(--h2-ls); font-variation-settings: "opsz" 72, "wght" 500, "SOFT" 100, "WONK" 0; }
+h3 { font-size: var(--h3-size-m); line-height: var(--h3-lh); font-variation-settings: "opsz" 36, "wght" 500, "SOFT" 100, "WONK" 0; }
+h4 { font-family: var(--font-body); font-size: var(--h4-size-m); line-height: var(--h4-lh); font-weight: 600; margin: 0; }
+@media (min-width: 821px) {
+  h1 { font-size: var(--h1-size); }
+  h2 { font-size: var(--h2-size); }
+  h3 { font-size: var(--h3-size); }
+  h4 { font-size: var(--h4-size); }
+}
+p { max-width: var(--measure); margin: 0 0 var(--s-4); }
+a { color: inherit; }
+img, svg, video { max-width: 100%; height: auto; display: block; }
+ul, ol { margin: 0; padding: 0; }
+
+.small { font-size: var(--small-size); line-height: var(--small-lh); color: var(--text-2); }
+.label {
+  font-family: var(--font-label); font-size: var(--label-size); line-height: var(--label-lh);
+  letter-spacing: var(--label-ls); text-transform: uppercase; color: var(--text-2);
+}
+.log { font-family: var(--font-label); font-size: var(--log-size); line-height: var(--log-lh); }
+
+/* Wordmark. Live text on Fraunces, same axes as the logo files. Never retype elsewhere. */
+.wm {
+  font-family: var(--font-display);
+  font-variation-settings: var(--wordmark-axes);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-decoration: none;
+}
+.wm .dot { color: var(--node); }
+
+/* ---- Focus ---- */
+:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+
+.skip {
+  position: absolute; left: -9999px; top: var(--s-2);
+  background: var(--text); color: var(--surface);
+  padding: var(--s-2) var(--s-4); z-index: 10; text-decoration: none;
+}
+.skip:focus-visible { left: var(--s-2); }
+
+/* ---- Shell and bands ---- */
+.shell { max-width: var(--page-max); margin-inline: auto; padding-inline: var(--page-margin-m); }
+@media (min-width: 821px) { .shell { padding-inline: var(--page-margin); } }
+
+.band { padding-block: var(--s-12); }
+@media (min-width: 821px) { .band { padding-block: var(--s-16); } }
+.band + .band { border-top: var(--border); }
+.band--alt { background: var(--surface-2); }
+/* Dark bands take the dark token set via data-theme="dark" on the section itself. */
+[data-theme="dark"].band { background: var(--surface); color: var(--text); border-top: 0; }
+[data-theme="dark"].band + .band { border-top: 0; }
+
+/* ---- Header ---- */
+.site-head { border-bottom: var(--border); background: var(--surface); }
+.site-head .shell {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--s-4); flex-wrap: wrap; padding-block: var(--s-4);
+}
+.site-head .wm { font-size: 1.75rem; color: var(--text); }
+.site-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); }
+.site-nav a {
+  font-size: var(--small-size); font-weight: 500; text-decoration: none;
+  color: var(--text); padding-block: var(--s-1);
+}
+.site-nav a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.site-nav a[aria-current="page"] { border-bottom: 2px solid var(--text); }
+
+/* ---- Hero (index) ---- */
+.hero { padding-block: var(--s-12) var(--s-16); }
+@media (min-width: 821px) { .hero { padding-block: var(--s-16) var(--s-24); } }
+.hero-title {
+  font-size: clamp(3.25rem, 12vw, 7.5rem);
+  max-width: 9ch;
+  margin: var(--s-3) 0 var(--s-2);
+}
+.origin-line {
+  font-family: var(--font-display); font-style: italic; font-weight: 400;
+  font-variation-settings: "opsz" 36, "wght" 400, "SOFT" 100, "WONK" 0;
+  font-size: var(--h3-size-m); line-height: var(--h3-lh);
+}
+@media (min-width: 821px) { .origin-line { font-size: var(--h3-size); } }
+.hero-grid { display: grid; gap: var(--s-8); }
+@media (min-width: 821px) {
+  .hero-grid { grid-template-columns: 7fr 5fr; gap: var(--gutter); align-items: end; }
+}
+.hero-tag { text-align: left; }
+@media (min-width: 821px) { .hero-tag { text-align: right; } }
+
+/* Page-head for interior pages: same shape, kit scale. */
+.page-head { padding-block: var(--s-12); }
+@media (min-width: 821px) { .page-head { padding-block: var(--s-16); } }
+.page-head h1 { max-width: 16ch; margin: var(--s-3) 0 var(--s-4); }
+
+/* ---- Taproot. Ordered sequences only. Never decoration, never branching. ---- */
+.taproot { position: relative; padding-left: var(--s-8); border-left: var(--spine-width) solid var(--text); max-width: var(--measure); }
+.taproot .entry { position: relative; padding: 0 0 var(--s-6); }
+.taproot .entry:last-child { padding-bottom: 0; }
+.taproot .node {
+  position: absolute; top: 0.25rem;
+  left: calc(-1 * var(--s-8) - var(--node-size) / 2 - var(--spine-width) / 2);
+  width: var(--node-size); height: var(--node-size);
+  border-radius: var(--radius-node); background: var(--node);
+}
+.taproot .entry > .label { margin-bottom: var(--s-1); }
+.taproot h4 { margin-bottom: var(--s-1); }
+.taproot p:last-child { margin-bottom: 0; }
+
+/* ---- Buttons and fields ---- */
+.btn {
+  display: inline-block; font-family: var(--font-body); font-weight: 600;
+  font-size: var(--small-size); line-height: var(--small-lh);
+  padding: var(--s-3) var(--s-6);
+  border: var(--border-strong); background: var(--text); color: var(--surface);
+  text-decoration: none; cursor: pointer; border-radius: var(--radius);
+}
+.btn.secondary { background: transparent; color: var(--text); }
+.btn:hover { background: var(--text-2); border-color: var(--text-2); color: var(--surface); }
+.btn.secondary:hover { background: transparent; color: var(--text-2); }
+
+.field {
+  font: inherit; padding: var(--s-3); border: var(--border-strong);
+  background: var(--surface); color: var(--text); width: 100%; border-radius: var(--radius);
+}
+.form-row { margin-bottom: var(--s-4); }
+.form-row > label { display: block; font-size: var(--small-size); font-weight: 600; margin-bottom: var(--s-1); }
+.form-row .small { display: block; margin-top: var(--s-1); }
+.form-grid { display: grid; gap: 0 var(--gutter-m); }
+@media (min-width: 821px) { .form-grid { grid-template-columns: 1fr 1fr; gap: 0 var(--gutter); } }
+.form-grid .wide { grid-column: 1 / -1; }
+.check { display: flex; gap: var(--s-2); align-items: flex-start; font-size: var(--small-size); font-weight: 500; }
+.check input { width: 1rem; height: 1rem; margin-top: 0.2em; accent-color: var(--text); }
+/* Honeypot. Off-canvas, not display:none, so bots still see it. */
+.bh { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.form-note { margin-top: var(--s-3); }
+.form-done { border: var(--border-strong); padding: var(--s-6); max-width: var(--measure); }
+.form-done p:last-child { margin-bottom: 0; }
+[hidden] { display: none !important; }
+
+/* ---- Two-column section layout ---- */
+.cols { display: grid; gap: var(--s-8); }
+@media (min-width: 821px) { .cols { grid-template-columns: 1fr 1fr; gap: var(--gutter); } }
+.cols-media { display: grid; gap: var(--s-8); align-items: start; }
+@media (min-width: 821px) { .cols-media { grid-template-columns: 6fr 6fr; gap: var(--gutter); } }
+
+/* ---- Photography and the video slot. Square corners, hairline frame. ---- */
+.photo { border: var(--border); width: 100%; height: auto; }
+figure { margin: 0; }
+figcaption { margin-top: var(--s-2); }
+.media-slot video { border: var(--border); width: 100%; height: auto; }
+
+/* ---- Fact table (support page). Log face, like the back of the bag. ---- */
+.facts { width: 100%; border-collapse: collapse; max-width: var(--measure); }
+.facts th, .facts td {
+  text-align: left; vertical-align: top; padding: var(--s-3) var(--s-2);
+  border-bottom: var(--border);
+  font-family: var(--font-label); font-size: var(--log-size); line-height: var(--log-lh);
+  font-weight: 400;
+}
+.facts th {
+  text-transform: uppercase; letter-spacing: var(--label-ls);
+  font-size: var(--label-size); color: var(--text-2); white-space: nowrap; padding-right: var(--s-6);
+}
+
+/* ---- The bag. Adapted from the kit page; literal inks are the kit's own. ---- */
+.bag {
+  width: 250px; height: 410px; background: var(--paper); position: relative;
+  color: var(--roast); border: 1px solid #d9cdb9; flex: none;
+}
+.bag::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 22px; border-bottom: 1px solid rgba(34,26,22,.18); }
+.bag .valve { position: absolute; right: 22px; top: 38px; width: 8px; height: 8px; border-radius: 50%; background: rgba(34,26,22,.22); }
+.bag .bwm { position: absolute; left: 28px; top: 50px; font-size: 56px; }
+.bag .borigin { position: absolute; left: 28px; top: 118px; font-family: var(--font-display); font-variation-settings: "opsz" 36, "wght" 400, "SOFT" 100, "WONK" 0; font-size: 19px; line-height: 1.2; font-style: italic; }
+.bag .bspine { position: absolute; left: 60px; top: 176px; bottom: 70px; width: 1.5px; background: var(--roast); }
+.bag .bn { position: absolute; left: 55px; width: 11px; height: 11px; border-radius: 50%; background: var(--green); }
+.bag .bl { position: absolute; left: 78px; font-family: var(--font-label); font-size: 11px; line-height: 1.35; width: 150px; }
+.bag .bl .k { display: block; font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--bark); }
+.bag .wt { position: absolute; left: 28px; bottom: 28px; font-family: var(--font-display); font-variation-settings: "opsz" 72, "wght" 600, "SOFT" 100, "WONK" 0; font-size: 24px; }
+.bag .wt small { font-family: var(--font-label); font-size: 10px; letter-spacing: .08em; margin-left: 6px; color: var(--bark); }
+.bag .btag { position: absolute; right: 22px; bottom: 30px; text-align: right; font-family: var(--font-body); font-size: 9.5px; line-height: 1.35; color: var(--bark); max-width: 86px; }
+
+/* ---- Footer ---- */
+.site-foot { margin-top: 0; }
+.site-foot .shell { padding-block: var(--s-12); }
+.site-foot .wm { font-size: 2rem; color: var(--text); }
+.foot-grid { display: grid; gap: var(--s-8); margin-top: var(--s-6); }
+@media (min-width: 821px) { .foot-grid { grid-template-columns: 2fr 1fr 1fr; gap: var(--gutter); } }
+.site-foot address { font-style: normal; }
+.site-foot a { color: inherit; }
+.foot-nav ul { list-style: none; }
+.foot-nav li { padding-block: var(--s-1); }
+.foot-nav a { text-decoration: none; font-size: var(--small-size); }
+.foot-nav a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.signoff {
+  font-family: var(--font-display); font-variation-settings: "opsz" 36, "wght" 500, "SOFT" 100, "WONK" 0;
+  font-size: var(--h3-size-m); line-height: var(--h3-lh);
+  margin-top: var(--s-8); padding-top: var(--s-8); border-top: 1px solid var(--rule);
+  max-width: 24ch;
+}
+
+/* ---- Motion. Two moves only: a load rise on the hero, a scroll reveal on marked
+   sections. Both are removed entirely under prefers-reduced-motion. ---- */
+.rise { opacity: 0; transform: translateY(0.75rem); animation: rise 560ms var(--ease) forwards; }
+.rise.d1 { animation-delay: 90ms; }
+.rise.d2 { animation-delay: 180ms; }
+.rise.d3 { animation-delay: 270ms; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+
+.reveal { opacity: 0; transform: translateY(0.75rem); transition: opacity 560ms var(--ease), transform 560ms var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise, .reveal { opacity: 1; transform: none; animation: none; transition: none; }
+}
+/* No-JS safety: reveals only hide when JS has tagged the page. */
+html:not(.js) .reveal { opacity: 1; transform: none; }
