@@ -62,7 +62,7 @@
       }).catch(function () {
         btn.disabled = false; btn.textContent = 'Send it';
         msg.className = 'msg on';
-        msg.innerHTML = 'That didn’t send. Email <a href="mailto:darryl@rootedclt.org">darryl@rootedclt.org</a> or call <a href="tel:+17046894591">(704) 689-4591</a>.';
+        msg.innerHTML = 'That didn’t send. Email <a href="mailto:darryl@rootedclt.org">darryl@rootedclt.org</a> or call <a href="tel:+19807854280">(980) 785-4280</a>.';
       });
     });
   }
