@@ -2,207 +2,213 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>rooted. — Coffee roasted on South Tryon</title>
-<meta name="description" content="rooted roasts coffee on South Tryon Street in Charlotte. First roast: Cajamarca, Peru. Join the waitlist.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>rooted. — Good work. Good coffee. Good news.</title>
+<meta name="description" content="rooted is a neighborhood enterprise in South Charlotte. We roast coffee, we hire and train neighbors to do the work, and the people who live here help run it.">
+<meta name="theme-color" content="#F5EFE4">
+<meta property="og:title" content="rooted. — Good work. Good coffee. Good news.">
+<meta property="og:description" content="A neighborhood enterprise in South Charlotte. We roast coffee, we hire and train neighbors to do the work, and the people who live here help run it.">
 <link rel="icon" href="rooted-favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="rooted-fonts.css">
 <link rel="stylesheet" href="rooted-tokens.css">
-<link rel="stylesheet" href="rooted-site.css">
-<script src="rooted-site.js" defer></script>
+<link rel="stylesheet" href="rooted-landing.css">
+<script src="rooted-landing.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="site-head">
-  <div class="shell">
-    <a class="wm" href="index.html" aria-label="rooted. — home">rooted<span class="dot">.</span></a>
-    <nav class="site-nav" aria-label="Site">
-      <ul>
-        <li><a href="coffee.html">Coffee</a></li>
-        <li><a href="work.html">The Work</a></li>
-        <li><a href="church.html">The Church</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+<!-- THE RAIL. The taproot as a fixed roast gauge: six nodes, one per stage,
+     the active node at full size. It sits on Paper always, like the bag spine
+     standing beside the page, so the green nodes never land on a surface they
+     fail on. Decorative duplicate of the section tags — hidden from AT. -->
+<div class="rail" aria-hidden="true">
+  <div class="label">Roast log<br>rooted / clt<br>&deg;C</div>
+  <div class="rail-spine">
+    <span class="rail-node on" style="top:0%"></span>
+    <span class="rail-node" style="top:20%"></span>
+    <span class="rail-node" style="top:40%"></span>
+    <span class="rail-node" style="top:60%"></span>
+    <span class="rail-node" style="top:80%"></span>
+    <span class="rail-node" style="top:100%"></span>
   </div>
-</header>
+  <div>
+    <div class="rail-temp" id="railTemp">21&deg;</div>
+    <div class="label" id="railStage">Green</div>
+  </div>
+</div>
+<div class="chip" aria-hidden="true"><span id="chipText">Green &middot; 21&deg;</span></div>
 
 <main id="main">
 
-  <!-- HERO. The home page opens the way the bag front reads: origin at poster
-       scale, the roast log on the taproot, the weight of the page on the coffee.
-       Hero Fraunces runs clamp(3.25rem, 12vw, 7.5rem) — up to 120px desktop. -->
-  <section class="hero" aria-label="First roast">
-    <div class="shell">
-      <div class="hero-grid">
-        <div>
-          <!-- DRAFT LOT. Season and origin come from the kit's examples. Replace
-               with the real first lot from the importer's sheet before launch. -->
-          <p class="label rise">First roast &middot; Fall 2026</p>
-          <h1 class="hero-title rise d1">Cajamarca,<br>Peru.</h1>
-          <p class="origin-line rise d2">washed &middot; medium &middot; 340g</p>
-        </div>
-        <div class="taproot rise d3" role="list" aria-label="The roast log">
-          <div class="entry" role="listitem">
-            <span class="node" aria-hidden="true"></span>
-            <div class="label">Origin</div>
-            <div class="log">Cajamarca, Peru</div>
-          </div>
-          <div class="entry" role="listitem">
-            <span class="node" aria-hidden="true"></span>
-            <div class="label">Process</div>
-            <div class="log">Washed</div>
-          </div>
-          <div class="entry" role="listitem">
-            <span class="node" aria-hidden="true"></span>
-            <div class="label">Roasted</div>
-            <div class="log">The week it ships</div>
-          </div>
-          <div class="entry" role="listitem">
-            <span class="node" aria-hidden="true"></span>
-            <div class="label">Farm price</div>
-            <div class="log">Published by the importer. Printed on the bag.</div>
-          </div>
-        </div>
+<!-- ============ 00 GREEN ============ -->
+<section class="stage sf-green hero" data-stage="Green" data-temp="21" aria-label="rooted">
+  <div class="shell">
+    <div class="tag"><b>00</b> Green<span>Unroasted</span></div>
+    <h1 class="wm mark-h1 rise">rooted<span class="dot">.</span></h1>
+    <p class="claim rise d1"><b>Good work.</b><b>Good coffee.</b><b>Good news.</b></p>
+    <div class="herofoot rise d2">
+      <div>South Charlotte</div>
+      <div>Brookhill Village &amp; Southside</div>
+      <div>Est. in progress</div>
+    </div>
+    <!-- PHOTO SLOT. A strip of three square material shots belongs here when
+         real photographs exist: green coffee, the drum, the building. The page
+         is designed to hold without them — do not fill with stock portraits. -->
+  </div>
+</section>
+
+<!-- ============ 01 DRYING ============ -->
+<section class="stage sf-dry" data-stage="Drying" data-temp="160" aria-labelledby="t-dry">
+  <div class="shell">
+    <div class="tag" id="t-dry"><b>01</b> Drying<span>What rooted is</span></div>
+    <div class="cols wide reveal">
+      <div>
+        <!-- The paragraph. Fixed wording — see CLAUDE.md. -->
+        <p class="lede">rooted is a neighborhood enterprise in South Charlotte. We roast coffee, we hire and train neighbors to do the work, and the people who live here help run it.</p>
       </div>
-      <div class="hero-grid" style="margin-top: var(--s-8);">
-        <div class="rise d3">
-          <p style="margin-bottom: var(--s-3);"><a class="btn" href="#waitlist">Reserve the first roast</a></p>
-          <p class="small">No payment now. We email when the roast is scheduled.</p>
-        </div>
-        <p class="small hero-tag rise d3">Good work. Good coffee. Good news.</p>
+      <div>
+        <p>Brookhill Village and Southside are two public housing communities off South Tryon Street. The land around them has gotten expensive fast. Families who have been here for decades are watching the neighborhood change and doing the math on how long they get to stay.</p>
+        <p>rooted is one answer to that. A business that hires on these blocks, teaches a real trade, and keeps its money moving through the neighborhood instead of out of it. Most of the people we hire live in Brookhill Village or Southside. The wages land where they live.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- THE ROASTING ROOM. One of two full-bleed Roast sections on the whole site
-       (the other is on work.html). The footer is a constant frame, not a switch. -->
-  <section class="band" data-theme="dark" aria-label="The roasting room">
-    <div class="shell">
-      <div class="cols-media">
-        <div class="media-slot reveal">
-          <!-- THE ONE VIDEO MOMENT on the site lives here. Until drum-loop.mp4
-               exists, the placeholder image stands in. To go live:
-               1. Download a short loop (drum turning, or beans dropping into the
-                  cooling tray) from Coverr or Pexels. Under 2MB. Name it
-                  drum-loop.mp4, poster frame drum-poster.jpg, both in the root.
-               2. Replace the <img> below with:
-               <video muted loop playsinline autoplay preload="none"
-                      poster="drum-poster.jpg" data-src="drum-loop.mp4"
-                      width="1200" height="800"
-                      aria-label="The roasting drum turning"></video>
-               rooted-site.js lazy-loads it and swaps to the poster under
-               prefers-reduced-motion. Do not add controls or sound. -->
-          <img class="photo" src="photo-drum.svg" width="1200" height="800"
-               alt="Placeholder: the roasting drum mid-roast." loading="lazy">
-        </div>
-        <div class="reveal">
-          <h2>Roasted on South Tryon.</h2>
-          <!-- The paragraph. Fixed wording, never paraphrase. -->
-          <p style="margin-top: var(--s-4);">rooted is a neighborhood enterprise in South Charlotte. We roast coffee, we hire and train neighbors to do the work, and the people who live here help run it. Most of the people we hire have been through the justice system. We hire them as roasters, and roaster is the job title.</p>
-          <p>The roasting room and the fellowship hall are the same room.</p>
-          <p style="margin-top: var(--s-6);"><a class="btn secondary" href="work.html">How the work works</a></p>
-        </div>
+<!-- ============ 02 FIRST CRACK ============ -->
+<section class="stage sf-crack" data-stage="First crack" data-temp="196" aria-labelledby="t-crack">
+  <div class="shell">
+    <div class="tag" id="t-crack"><b>02</b> First crack<span>How we work</span></div>
+    <h2 class="stageword">What&rsquo;s strong,<br><em>not</em> wrong</h2>
+    <div class="cols reveal">
+      <div>
+        <p>Most funding conversations open with what a place is missing. We open with who is already here and what they already know how to do.</p>
+        <p>There is real capacity on these blocks. It doesn&rsquo;t show up in a needs assessment and it rarely gets asked about. So we go looking for it, we name it out loud, and we build the business around the people we find.</p>
+      </div>
+      <div>
+        <p>Neighbors help author this work. Some on payroll, some at the table where decisions get made. That involvement is how the business is designed to run, not something we added on top of it.</p>
       </div>
     </div>
-  </section>
+    <!-- PHOTO SLOT. One wide material shot (hands at the cooling tray, no
+         identifiable face) can close this stage later. -->
+  </div>
+</section>
 
-  <!-- THE REVENUE ORDER. Taproot use is legitimate here: it is an ordered
-       sequence, and the sentences are the kit's own. -->
-  <section class="band" aria-labelledby="sells-h">
-    <div class="shell">
-      <h2 id="sells-h">How this coffee sells</h2>
-      <p style="margin-top: var(--s-4); margin-bottom: var(--s-8);">We are building the business in a particular order. Steady accounts come first, because payroll has to be reliable before anything else can be.</p>
-      <div class="taproot reveal">
-        <div class="entry">
-          <span class="node" aria-hidden="true"></span>
-          <h4>Anchor accounts</h4>
-          <p class="small">Standing wholesale orders from churches, schools, and offices. Contracted, invoiced, and predictable enough to plan payroll around.</p>
-          <p class="small"><a href="coffee.html#wholesale">Open an account</a></p>
-        </div>
-        <div class="entry">
-          <span class="node" aria-hidden="true"></span>
-          <h4>Subscriptions</h4>
-          <p class="small">Recurring bags shipped to households. Better margin, and it builds a base of people with a stake in how this turns out.</p>
-          <p class="small"><a href="#waitlist">Say you want one</a></p>
-        </div>
-        <div class="entry">
-          <span class="node" aria-hidden="true"></span>
-          <h4>Pop-ups</h4>
-          <p class="small">Markets, events, and being present in the neighborhood. It doesn&rsquo;t move much volume, but it&rsquo;s how people meet us and how new hires learn the counter.</p>
-          <p class="small"><a href="contact.html">Where we&rsquo;ll be</a></p>
-        </div>
+<!-- ============ 03 DEVELOPMENT ============ -->
+<section class="stage sf-dev" data-stage="Development" data-temp="207" aria-labelledby="t-dev">
+  <div class="shell">
+    <div class="tag" id="t-dev"><b>03</b> Development<span>The enterprise</span></div>
+    <div class="reveal">
+      <h2>Coffee, roasted here</h2>
+      <p>We&rsquo;re starting with small-batch roasting. Coffee makes sense as a first business for a few plain reasons. You can begin without much capital. Roasting is a real skill somebody can learn and carry with them. The product keeps on a shelf for weeks. And churches, schools, and offices across Charlotte already buy a lot of it, week after week.</p>
+      <p>The people who do the roasting are hired as roasters, and roaster is the job title. Many of the people we hire are coming home from incarceration and picking up a trade they can take anywhere. The wage is hourly and it starts on the first day of training.</p>
+    </div>
+
+    <div class="chan reveal">
+      <div class="row">
+        <div class="n">01</div><h3 class="row-t">Anchor accounts</h3>
+        <p>Standing wholesale orders from churches, schools, and offices. Contracted, invoiced, and predictable enough to plan payroll around.</p>
+      </div>
+      <div class="row">
+        <div class="n">02</div><h3 class="row-t">Subscriptions</h3>
+        <p>Recurring bags shipped to households. Better margin, and it builds a base of people with a stake in how this turns out.</p>
+      </div>
+      <div class="row">
+        <div class="n">03</div><h3 class="row-t">Pop-ups</h3>
+        <p>Markets, events, and being present in the neighborhood. It doesn&rsquo;t move much volume, but it&rsquo;s how people meet us and how new hires learn the counter.</p>
       </div>
     </div>
-  </section>
+    <p class="chan-note label dim">Steady accounts first. Payroll has to be reliable before anything else can be.</p>
+  </div>
+</section>
 
-  <!-- THE WAITLIST. Priority one. Netlify form, honeypot, inline thank-you. -->
-  <section class="band band--alt" id="waitlist" aria-labelledby="waitlist-h">
-    <div class="shell">
-      <h2 id="waitlist-h">The waitlist</h2>
-      <p style="margin-top: var(--s-4); margin-bottom: var(--s-8); max-width: var(--measure);">The first roast is small. Leave your name and we email you when it has a date. Check the box and you are also in line for a subscription, ahead of everyone who found us later.</p>
-
-      <form name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-done="waitlist-done" style="max-width: var(--measure);">
-        <input type="hidden" name="form-name" value="waitlist">
-        <p class="bh"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-        <div class="form-grid">
-          <div class="form-row">
-            <label for="w-name">Name</label>
-            <input class="field" id="w-name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="form-row">
-            <label for="w-email">Email</label>
-            <input class="field" id="w-email" name="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="form-row">
-            <label for="w-zip">ZIP code <span class="small" style="display:inline; font-weight:400;">(optional)</span></label>
-            <input class="field" id="w-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code">
-            <span class="small">So we know where the coffee is going.</span>
-          </div>
-          <div class="form-row" style="align-self: end;">
-            <label class="check"><input type="checkbox" name="subscription" value="yes"> I want a subscription when they exist</label>
-          </div>
-        </div>
-        <button class="btn" type="submit">Join the waitlist</button>
-        <p class="form-note small" role="status" aria-live="polite"></p>
-      </form>
-
-      <div class="form-done" id="waitlist-done" hidden>
-        <h3>You&rsquo;re on the list.</h3>
-        <p style="margin-top: var(--s-3);">When the first roast has a date, you will hear it from us before anyone else. If you checked the subscription box, you are in that line too.</p>
+<!-- ============ 04 DROP ============ -->
+<section class="stage sf-drop" data-stage="Drop" data-temp="212" aria-labelledby="t-drop">
+  <div class="shell">
+    <div class="tag" id="t-drop"><b>04</b> Drop<span>Where this goes</span></div>
+    <h2 class="stageword">The longer<br><em>plan</em></h2>
+    <div class="cols reveal">
+      <div>
+        <p>Coffee is the start. What we&rsquo;re really building is the ability to run something well: hiring, training, pricing, keeping books, making decisions with the neighborhood rather than about it. Once we can do that, we can do it again with a second venture.</p>
+      </div>
+      <div>
+        <p>Community involvement stays at the center of it. Neighbors on staff, neighbors in leadership, and a business whose wages and decisions land here. The legal shape of that is still being decided, and we would rather leave it open than answer it badly. What is settled is that the people who live here help run it.</p>
       </div>
     </div>
-  </section>
+
+    <div class="cols reveal" style="margin-top: clamp(2.5rem, 6vw, 4.25rem);">
+      <div>
+        <h3>Where we come from</h3>
+        <!-- The church line. Fixed wording. -->
+        <p class="dim" style="font-size: var(--small-size);">rooted grew out of South Tryon Community United Methodist Church and the neighbors of Brookhill Village and Southside.</p>
+        <h3 style="margin-top: var(--s-6);">Who we learn from</h3>
+        <p class="dim" style="font-size: var(--small-size);">Homeboy Industries in Los Angeles. Deep Time at Trinity UMC in Asheville, running a coffee social enterprise since 2023.</p>
+      </div>
+      <div>
+        <h3>Where we are now</h3>
+        <p class="dim" style="font-size: var(--small-size);">Active development. Equipment specified and the compliance pathway mapped. We&rsquo;re raising toward launch.</p>
+        <!-- PHOTO SLOT. A small-batch roaster or the room, once photographed. -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 CUPPING ============ -->
+<section class="stage sf-cup" data-stage="Cupping" data-temp="-" aria-labelledby="t-cup">
+  <div class="shell">
+    <div class="tag" id="t-cup"><b>05</b> Cupping<span>Start a conversation</span></div>
+    <h2 class="stageword">Let&rsquo;s grow something <em>beautiful</em> together.</h2>
+    <div class="cols wide reveal">
+      <div>
+        <p style="margin-bottom: var(--s-6);">If you fund neighborhood economic development, buy coffee in volume, want a bag when the first roast drops, or just want to know more before you decide anything, tell us who you are. We&rsquo;ll follow up.</p>
+
+        <form id="capture" name="rooted-site" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="max-width: 560px;">
+          <input type="hidden" name="form-name" value="rooted-site">
+          <div class="hp"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></div>
+          <div class="fld"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="fld"><label for="f-org">Organization</label><input id="f-org" name="organization" type="text" autocomplete="organization"></div>
+          <div class="fld"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+          <div class="fld"><label for="f-interest">What brings you here</label>
+            <select id="f-interest" name="interest" required>
+              <option value="">Pick one</option>
+              <option>Coffee for my kitchen, when it&rsquo;s ready</option>
+              <option>Anchor account or wholesale</option>
+              <option>Funding or grantmaking</option>
+              <option>Partnership</option>
+              <option>I live in the neighborhood</option>
+              <option>Press or research</option>
+              <option>Something else</option>
+            </select></div>
+          <div class="fld"><label for="f-msg">Anything you want us to know</label>
+            <textarea id="f-msg" name="message" rows="3" placeholder="A sentence is plenty."></textarea></div>
+          <button class="send" type="submit" id="sendBtn">Send it</button>
+          <p class="msg" id="msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div>
+        <div class="direct" style="margin-top: 0; padding-top: 0; border-top: 0;">
+          <a class="big-link" href="mailto:darryl@rootedclt.org">darryl@rootedclt.org</a>
+          <a class="big-link" href="tel:+17046894591">(704) 689-4591</a>
+          <p class="label dim" style="margin-top: var(--s-4); max-width: none;">2516 South Tryon Street<br>Charlotte, NC 28203</p>
+        </div>
+        <!-- PHOTO SLOT. A cupping-table or pour shot, portrait crop, later. -->
+      </div>
+    </div>
+  </div>
+</section>
 
 </main>
 
-<footer class="site-foot band" data-theme="dark">
+<footer>
   <div class="shell">
-    <a class="wm" href="index.html" aria-label="rooted. — home">rooted<span class="dot">.</span></a>
-    <div class="foot-grid">
-      <div>
-        <!-- The church line. Fixed wording. One sentence, stated plainly. -->
-        <p>rooted grew out of South Tryon Community United Methodist Church and the neighbors of Brookhill Village and Southside.</p>
-      </div>
-      <address>
-        <p class="small">2516 South Tryon Street<br>Charlotte, NC 28203</p>
-        <p class="small"><a href="mailto:darryl@rootedclt.org">darryl@rootedclt.org</a><br><a href="tel:+17046894591">(704) 689-4591</a></p>
-      </address>
-      <nav class="foot-nav" aria-label="Footer">
-        <ul>
-          <li><a href="coffee.html">Coffee</a></li>
-          <li><a href="work.html">The Work</a></li>
-          <li><a href="church.html">The Church</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="wm fmark">rooted<span class="dot">.</span></div>
+    <div class="fnote">
+      <!-- The church line. Fixed wording. One sentence, stated plainly. -->
+      <p style="font-size: var(--small-size); max-width: var(--measure);">rooted grew out of South Tryon Community United Methodist Church and the neighbors of Brookhill Village and Southside.</p>
+      <span class="label">Stay rooted.</span>
+      <!-- Legal entity name goes here once the structure is decided.
+           Deliberately blank until then. Do not add a placeholder name. -->
     </div>
-    <p class="signoff">Let&rsquo;s grow something beautiful together. Stay rooted.</p>
-    <!-- Legal entity name goes here once the structure is decided.
-         Deliberately blank until then. Do not add a placeholder name. -->
   </div>
 </footer>
 
