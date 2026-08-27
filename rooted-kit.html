@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rooted. — Brand kit v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* rooted. design tokens — v1.0, August 2026
+   Direction: Cup. Paste into the site build unchanged.
+   Fonts: Fraunces, Instrument Sans, Courier Prime (all SIL OFL 1.1, Google Fonts).
+   Contrast ratios below were computed, not estimated. Text pairs pass WCAG AA (4.5).
+   Green is a mark, never text. */
+
+:root {
+  /* ---- Palette, named by what it is ---- */
+  --roast:   #221A16;  /* ink; dark surface.            Paper on Roast 14.95 */
+  --roast-2: #2A201B;  /* second dark surface.          Paper on Roast-2 13.89 */
+  --bark:    #5A4A40;  /* secondary text on light.      Bark on Paper 7.37, on Paper-2 6.70 */
+  --chaff:   #C9B8A2;  /* secondary text on dark.       Chaff on Roast 8.85, on Roast-2 8.22 */
+  --paper:   #F5EFE4;  /* light surface; the bag.       Roast on Paper 14.95 */
+  --paper-2: #EDE4D5;  /* second light surface.         Roast on Paper-2 13.57 */
+  --green:   #4F7A3B;  /* the period. the nodes. never text.
+                          Green on Paper 4.39, on Paper-2 3.99, on Roast 3.41, on Roast-2 3.16 (graphic, 3.0) */
+  --rule-light: #DCCFBB; /* hairline rules on Paper */
+  --rule-dark:  #4A3C33; /* hairline rules on Roast */
+
+  /* Usage ratio across a page, roughly: Paper 58, Roast 30, Bark/Chaff 10, Green under 2. */
+
+  /* ---- Light set (default) ---- */
+  --surface:    var(--paper);
+  --surface-2:  var(--paper-2);
+  --text:       var(--roast);
+  --text-2:     var(--bark);
+  --rule:       var(--rule-light);
+  --node:       var(--green);
+  --focus:      var(--green);
+
+  /* ---- Type families ---- */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body:    "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-label:   "Courier Prime", "Courier New", monospace;
+
+  /* Fraunces axes. WONK is on in the wordmark only. */
+  --display-axes:  "opsz" 144, "wght" 500, "SOFT" 100, "WONK" 0;
+  --wordmark-axes: "opsz" 144, "wght" 600, "SOFT" 100, "WONK" 1;
+
+  /* ---- Type scale (desktop / mobile) ---- */
+  --h1-size: 3.5rem;    --h1-size-m: 2.5rem;   --h1-lh: 1.02; --h1-ls: -0.01em;  --h1-wght: 500; --h1-opsz: 144;
+  --h2-size: 2.25rem;   --h2-size-m: 1.875rem; --h2-lh: 1.10; --h2-ls: -0.005em; --h2-wght: 500; --h2-opsz: 72;
+  --h3-size: 1.625rem;  --h3-size-m: 1.375rem; --h3-lh: 1.20; --h3-ls: 0;        --h3-wght: 500; --h3-opsz: 36;
+  --h4-size: 1.125rem;  --h4-size-m: 1.0625rem;--h4-lh: 1.35; --h4-ls: 0;        --h4-wght: 600; /* Instrument Sans */
+  --body-size: 1.0625rem; --body-size-m: 1rem; --body-lh: 1.55; --body-ls: 0;    --body-wght: 400;
+  --small-size: 0.9375rem; --small-lh: 1.50;   --small-ls: 0;                     --small-wght: 400;
+  --label-size: 0.75rem;   --label-lh: 1.40;   --label-ls: 0.06em;                --label-wght: 400; /* Courier Prime, uppercase */
+  --log-size:   0.8125rem; --log-lh: 1.40;     --log-ls: 0;                       --log-wght: 400;   /* Courier Prime, sentence case */
+
+  --measure: 62ch;   /* body text never wider than this */
+
+  /* ---- Spacing, 4px base ---- */
+  --s-1: 0.25rem;  /* 4  */
+  --s-2: 0.5rem;   /* 8  */
+  --s-3: 0.75rem;  /* 12 */
+  --s-4: 1rem;     /* 16 */
+  --s-6: 1.5rem;   /* 24 */
+  --s-8: 2rem;     /* 32 */
+  --s-12: 3rem;    /* 48 */
+  --s-16: 4rem;    /* 64 */
+  --s-24: 6rem;    /* 96 */
+  --s-32: 8rem;    /* 128 */
+
+  /* ---- Grid ---- */
+  --page-max: 1120px;
+  --page-margin: 1.5rem;     /* 24 desktop */
+  --page-margin-m: 1.25rem;  /* 20 mobile */
+  --gutter: 1.5rem;          /* 24 desktop */
+  --gutter-m: 1rem;          /* 16 mobile */
+  --cols: 12;                /* 4 on mobile */
+
+  /* ---- Radius and border policy, stated as a rule ----
+     If it is not a node, it is not round.
+     Every corner in the system is square: buttons, fields, cards, photographs, tables.
+     The only round shape is the node (and the period), which is a circle.
+     Borders are 1px hairlines in --rule; emphasis borders are 1px in --text.
+     No drop shadows. Depth is a change of surface (Paper to Paper-2) or a hairline. */
+  --radius: 0;
+  --radius-node: 50%;
+  --border: 1px solid var(--rule);
+  --border-strong: 1px solid var(--text);
+  --node-size: 0.6875rem;   /* 11px */
+  --spine-width: 1.5px;
+
+  /* ---- Focus ---- */
+  --focus-ring: 2px solid var(--focus);
+  --focus-offset: 2px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --dur: 160ms;
+}
+
+/* Dark set. Apply to <body data-theme="dark"> or any container. */
+[data-theme="dark"] {
+  --surface:   var(--roast);
+  --surface-2: var(--roast-2);
+  --text:      var(--paper);
+  --text-2:    var(--chaff);
+  --rule:      var(--rule-dark);
+  --node:      var(--green);
+  --focus:     var(--green);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0ms; }
+}
+
+</style>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--surface);color:var(--text)}
+  body{font-family:var(--font-body);font-size:var(--body-size);line-height:var(--body-lh)}
+  .page{max-width:var(--page-max);margin:0 auto;padding:var(--s-12) var(--page-margin) var(--s-24)}
+  h1,h2,h3{font-family:var(--font-display);font-variation-settings:var(--display-axes);font-weight:500}
+  h1{font-size:var(--h1-size);line-height:var(--h1-lh);letter-spacing:var(--h1-ls)}
+  h2{font-size:var(--h2-size);line-height:var(--h2-lh);letter-spacing:var(--h2-ls);font-variation-settings:"opsz" 72,"wght" 500,"SOFT" 100,"WONK" 0;margin:0 0 var(--s-6)}
+  h3{font-size:var(--h3-size);line-height:var(--h3-lh);font-variation-settings:"opsz" 36,"wght" 500,"SOFT" 100,"WONK" 0;margin:var(--s-8) 0 var(--s-3)}
+  h4{font-family:var(--font-body);font-size:var(--h4-size);line-height:var(--h4-lh);font-weight:600;margin:var(--s-6) 0 var(--s-2)}
+  p{max-width:var(--measure);margin-bottom:var(--s-4)}
+  .small{font-size:var(--small-size);line-height:var(--small-lh);color:var(--text-2)}
+  .label{font-family:var(--font-label);font-size:var(--label-size);line-height:var(--label-lh);letter-spacing:var(--label-ls);text-transform:uppercase;color:var(--text-2)}
+  .log{font-family:var(--font-label);font-size:var(--log-size);line-height:var(--log-lh)}
+  section{padding:var(--s-16) 0;border-top:var(--border)}
+  section:first-of-type{border-top:0;padding-top:0}
+  .wm{font-family:var(--font-display);font-variation-settings:var(--wordmark-axes);font-weight:600;letter-spacing:-.01em;line-height:1}
+  .wm .dot{color:var(--node)}
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gutter)}
+  .c6{grid-column:span 6}.c4{grid-column:span 4}.c3{grid-column:span 3}.c8{grid-column:span 8}.c12{grid-column:span 12}
+  .box{border:var(--border);padding:var(--s-6);background:var(--surface)}
+  .box.alt{background:var(--surface-2)}
+  [data-theme="dark"].box{background:var(--surface);color:var(--text);border-color:var(--rule)}
+  table{width:100%;border-collapse:collapse;font-family:var(--font-label);font-size:var(--log-size);line-height:var(--log-lh)}
+  th,td{text-align:left;padding:var(--s-2) var(--s-2);border-bottom:var(--border);vertical-align:top}
+  th{font-weight:400;text-transform:uppercase;letter-spacing:var(--label-ls);font-size:var(--label-size);color:var(--text-2)}
+  .pass{color:#2f6b3a}.fail{color:#9a3b2b}
+  .sw{padding:var(--s-4);min-height:120px;display:flex;flex-direction:column;justify-content:space-between}
+  .sw .n{font-family:var(--font-display);font-variation-settings:"opsz" 36,"wght" 500,"SOFT" 100,"WONK" 0;font-size:1.25rem}
+  .pal{display:grid;grid-template-columns:repeat(4,1fr);border:var(--border)}
+  .pal .sw+.sw{border-left:var(--border)}
+  .scale .row{display:grid;grid-template-columns:140px 1fr;gap:var(--s-6);align-items:baseline;padding:var(--s-4) 0;border-bottom:var(--border)}
+  .scale .meta{font-family:var(--font-label);font-size:var(--label-size);color:var(--text-2);line-height:1.5}
+  .logos{display:grid;grid-template-columns:1fr 1fr;gap:var(--gutter)}
+  .logos .box{display:flex;flex-direction:column;gap:var(--s-4)}
+  .logos svg{width:100%;height:auto;display:block}
+  .clear{position:relative;display:inline-block;padding:0}
+  .clear .o{position:absolute;inset:0;border:1px dashed var(--node);pointer-events:none}
+  .btn{display:inline-block;font-family:var(--font-body);font-weight:600;font-size:var(--small-size);padding:var(--s-3) var(--s-6);border:var(--border-strong);background:var(--text);color:var(--surface);text-decoration:none;cursor:pointer;border-radius:var(--radius)}
+  .btn.secondary{background:transparent;color:var(--text)}
+  .btn:focus-visible,.field:focus-visible{outline:var(--focus-ring);outline-offset:var(--focus-offset)}
+  .field{font:inherit;padding:var(--s-3);border:var(--border-strong);background:var(--surface);color:var(--text);width:100%;border-radius:var(--radius)}
+  .root{position:relative;padding-left:var(--s-8);border-left:var(--spine-width) solid var(--text)}
+  .root .node{position:absolute;left:calc(-1 * var(--node-size) / 2 - var(--spine-width) / 2);width:var(--node-size);height:var(--node-size);border-radius:var(--radius-node);background:var(--node)}
+  .root .entry{position:relative;padding:0 0 var(--s-6)}
+  .root .entry:last-child{padding-bottom:0}
+  .refuse,.use{columns:2;column-gap:var(--gutter);font-family:var(--font-label);font-size:var(--log-size);line-height:1.7}
+  .dont{list-style:none;padding:0}
+  .dont li{padding:var(--s-3) 0;border-bottom:var(--border)}
+  .bag{width:250px;height:410px;background:var(--paper);position:relative;color:var(--roast);border:1px solid #d9cdb9}
+  .bag::before{content:"";position:absolute;left:0;right:0;top:0;height:22px;border-bottom:1px solid rgba(34,26,22,.18)}
+  .bag .valve{position:absolute;right:22px;top:38px;width:8px;height:8px;border-radius:50%;background:rgba(34,26,22,.22)}
+  .bag .bwm{position:absolute;left:28px;top:50px;font-size:56px}
+  .bag .origin{position:absolute;left:28px;top:118px;font-family:var(--font-display);font-variation-settings:"opsz" 36,"wght" 400,"SOFT" 100,"WONK" 0;font-size:19px;line-height:1.2;font-style:italic}
+  .bag .bspine{position:absolute;left:60px;top:176px;bottom:70px;width:1.5px;background:var(--roast)}
+  .bag .bn{position:absolute;left:55px;width:11px;height:11px;border-radius:50%;background:var(--green)}
+  .bag .bl{position:absolute;left:78px;font-family:var(--font-label);font-size:11px;line-height:1.35;width:150px}
+  .bag .bl .k{display:block;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--bark)}
+  .bag .wt{position:absolute;left:28px;bottom:28px;font-family:var(--font-display);font-variation-settings:"opsz" 72,"wght" 600,"SOFT" 100,"WONK" 0;font-size:24px}
+  .bag .wt small{font-family:var(--font-label);font-size:10px;letter-spacing:.08em;margin-left:6px;color:var(--bark)}
+  .bag .tag{position:absolute;right:22px;bottom:30px;text-align:right;font-family:var(--font-body);font-size:9.5px;line-height:1.35;color:var(--bark);max-width:86px}
+  @media (max-width:820px){
+    h1{font-size:var(--h1-size-m)}h2{font-size:var(--h2-size-m)}h3{font-size:var(--h3-size-m)}body{font-size:var(--body-size-m)}
+    .page{padding-left:var(--page-margin-m);padding-right:var(--page-margin-m)}
+    .grid{grid-template-columns:repeat(4,1fr);gap:var(--gutter-m)}.c6,.c4,.c3,.c8{grid-column:span 4}
+    .pal{grid-template-columns:repeat(2,1fr)}.logos{grid-template-columns:1fr}.refuse,.use{columns:1}
+    .scale .row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<section>
+  <div class="label">rooted. brand kit · v1.0 · August 2026 · direction: Cup</div>
+  <div class="wm" style="font-size:clamp(4rem,14vw,9rem);margin:var(--s-6) 0">rooted<span class="dot">.</span></div>
+  <h1 style="max-width:18ch">Good work. Good coffee. Good news.</h1>
+  <p style="margin-top:var(--s-6)">rooted is a neighborhood enterprise in South Charlotte. We roast coffee, we hire and train neighbors to do the work, and the people who live here help run it. Most of the people we hire have been through the justice system. We hire them as roasters, and roaster is the job title.</p>
+  <p class="small">That paragraph is the brand in one place. The last two sentences are the fixed wording for naming the justice system: same words on the bag, the site, and the grant packet. Do not paraphrase them.</p>
+</section>
+
+<section id="palette">
+  <h2>Palette</h2>
+  <p>Seven colors and two hairlines. Paper is most of every page. Roast is the ink and the dark set. Green is the period and the nodes, and nothing else. It is never text, never a button, never a background.</p>
+  <div class="grid" style="margin-top:var(--s-8)">
+    <div class="c6">
+      <div class="label" style="margin-bottom:var(--s-2)">Light set · default</div>
+      <div class="pal">
+        <div class="sw" style="background:#F5EFE4;color:#221A16"><div class="n">Paper</div><div class="log">#F5EFE4<br>surface · 58%</div></div>
+        <div class="sw" style="background:#EDE4D5;color:#221A16"><div class="n">Paper-2</div><div class="log">#EDE4D5<br>second surface</div></div>
+        <div class="sw" style="background:#221A16;color:#F5EFE4"><div class="n">Roast</div><div class="log">#221A16<br>text</div></div>
+        <div class="sw" style="background:#5A4A40;color:#F5EFE4"><div class="n">Bark</div><div class="log">#5A4A40<br>secondary text</div></div>
+      </div>
+    </div>
+    <div class="c6">
+      <div class="label" style="margin-bottom:var(--s-2)">Dark set · data-theme="dark"</div>
+      <div class="pal">
+        <div class="sw" style="background:#221A16;color:#F5EFE4"><div class="n">Roast</div><div class="log">#221A16<br>surface · 30%</div></div>
+        <div class="sw" style="background:#2A201B;color:#F5EFE4"><div class="n">Roast-2</div><div class="log">#2A201B<br>second surface</div></div>
+        <div class="sw" style="background:#F5EFE4;color:#221A16"><div class="n">Paper</div><div class="log">#F5EFE4<br>text</div></div>
+        <div class="sw" style="background:#C9B8A2;color:#221A16"><div class="n">Chaff</div><div class="log">#C9B8A2<br>secondary text</div></div>
+      </div>
+    </div>
+    <div class="c4">
+      <div class="pal" style="grid-template-columns:1fr">
+        <div class="sw" style="background:#4F7A3B;color:#F5EFE4;min-height:120px"><div class="n">Green</div><div class="log">#4F7A3B<br>the period, the nodes · under 2%</div></div>
+      </div>
+    </div>
+    <div class="c8">
+      <table>
+        <tr><th>Pair</th><th>Ratio</th><th>AA</th><th>Where</th></tr>
+        <tr><td>Roast on Paper</td><td>14.95</td><td class="pass">text</td><td>body, headings</td></tr>
+        <tr><td>Roast on Paper-2</td><td>13.57</td><td class="pass">text</td><td>body on second surface</td></tr>
+        <tr><td>Bark on Paper</td><td>7.37</td><td class="pass">text</td><td>captions, labels</td></tr>
+        <tr><td>Bark on Paper-2</td><td>6.70</td><td class="pass">text</td><td>captions on second surface</td></tr>
+        <tr><td>Paper on Roast</td><td>14.95</td><td class="pass">text</td><td>dark set body</td></tr>
+        <tr><td>Paper on Roast-2</td><td>13.89</td><td class="pass">text</td><td>dark set, second surface</td></tr>
+        <tr><td>Chaff on Roast</td><td>8.85</td><td class="pass">text</td><td>dark set captions</td></tr>
+        <tr><td>Chaff on Roast-2</td><td>8.22</td><td class="pass">text</td><td>dark set captions, second surface</td></tr>
+        <tr><td>Green on Paper</td><td>4.39</td><td class="pass">graphic (3.0)</td><td>period, nodes, focus ring. Fails 4.5, so never text.</td></tr>
+        <tr><td>Green on Paper-2</td><td>3.99</td><td class="pass">graphic</td><td>same</td></tr>
+        <tr><td>Green on Roast</td><td>3.41</td><td class="pass">graphic</td><td>same, dark set</td></tr>
+        <tr><td>Green on Roast-2</td><td>3.16</td><td class="pass">graphic</td><td>same, dark set second surface</td></tr>
+        <tr><td>Green on Chaff</td><td>2.60</td><td class="fail">fail</td><td>Chaff is never a surface for nodes or text</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="type">
+  <h2>Type</h2>
+  <p><strong>Fraunces</strong> for display (Undercase Type). <strong>Instrument Sans</strong> for body (Rodrigo Fuenzalida). <strong>Courier Prime</strong> for labels and the roast log (Quote-Unquote Apps). All three are on Google Fonts under the SIL Open Font License 1.1, which covers web embedding and commercial print on packaging. Nothing to buy. For print, download the files from fonts.google.com and hand them to the printer with the license text.</p>
+  <p>Fraunces has four axes. The rule: optical size follows the point size, softness is always 100, and wonk is on in the wordmark only. Headings are upright and quiet. The wordmark is the one place the type gets to have a personality.</p>
+  <div class="scale" style="margin-top:var(--s-8)">
+    <div class="row"><div class="meta">h1 · Fraunces<br>56 / 40 mobile<br>500 · opsz 144<br>lh 1.02 · ls −0.01em</div><div style="font-family:var(--font-display);font-variation-settings:var(--display-axes);font-size:var(--h1-size);line-height:var(--h1-lh);letter-spacing:var(--h1-ls)">Coffee, roasted here.</div></div>
+    <div class="row"><div class="meta">h2 · Fraunces<br>36 / 30<br>500 · opsz 72<br>lh 1.10 · ls −0.005em</div><div style="font-family:var(--font-display);font-variation-settings:'opsz' 72,'wght' 500,'SOFT' 100,'WONK' 0;font-size:var(--h2-size);line-height:var(--h2-lh)">We look for what's strong, not wrong</div></div>
+    <div class="row"><div class="meta">h3 · Fraunces<br>26 / 22<br>500 · opsz 36<br>lh 1.20</div><div style="font-family:var(--font-display);font-variation-settings:'opsz' 36,'wght' 500,'SOFT' 100,'WONK' 0;font-size:var(--h3-size);line-height:var(--h3-lh)">Anchor accounts come first</div></div>
+    <div class="row"><div class="meta">h4 · Instrument Sans<br>18 / 17<br>600 · lh 1.35</div><div style="font-weight:600;font-size:var(--h4-size);line-height:var(--h4-lh)">Standing wholesale orders from churches, schools, and offices</div></div>
+    <div class="row"><div class="meta">body · Instrument Sans<br>17 / 16<br>400 · lh 1.55<br>measure 62ch</div><div style="max-width:var(--measure)">Brookhill Village and Southside are two public housing communities off South Tryon Street. The land around them has gotten expensive fast. rooted is one answer to that: a business that hires on these blocks, teaches a real trade, and keeps its money moving through the neighborhood instead of out of it.</div></div>
+    <div class="row"><div class="meta">small · Instrument Sans<br>15 · 400 · lh 1.50<br>color Bark</div><div class="small" style="max-width:var(--measure)">Steady accounts come first because payroll has to be reliable before anything else can be.</div></div>
+    <div class="row"><div class="meta">label · Courier Prime<br>12 · 400 · lh 1.40<br>ls 0.06em · uppercase</div><div class="label">Origin · Process · Roasted · Cupped by</div></div>
+    <div class="row"><div class="meta">log · Courier Prime<br>13 · 400 · lh 1.40<br>sentence case</div><div class="log">Cajamarca, Peru. Washed. Roasted Tue 25 Aug. Cupped by the cohort, Thursday.</div></div>
+    <div class="row"><div class="meta">italic display<br>Fraunces italic<br>for origin lines only</div><div style="font-family:var(--font-display);font-variation-settings:'opsz' 36,'wght' 400,'SOFT' 100,'WONK' 0;font-style:italic;font-size:var(--h3-size)">Cajamarca, Peru · washed · medium</div></div>
+  </div>
+</section>
+
+<section id="logo">
+  <h2>Wordmark and logo suite</h2>
+  <p>Lowercase, with a period. The period is green in the primary and dark versions and matches the text in single-color use. Clear space on every side is the height of the o. Minimum size is 24px on screen and 8mm in print. There is no lettermark yet; the small-application mark is the taproot with one node, which needs no font and reads at 16px.</p>
+  <div class="logos" style="margin-top:var(--s-8)">
+    <div class="box"><div class="label">Primary · Roast on Paper</div>
+      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#221A16" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted<tspan fill="#4F7A3B">.</tspan></text></svg>
+      <div class="small">rooted-logo-primary.svg</div></div>
+    <div class="box" data-theme="dark"><div class="label">Primary · dark set</div>
+      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#F5EFE4" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted<tspan fill="#4F7A3B">.</tspan></text></svg>
+      <div class="small">rooted-logo-primary-dark.svg</div></div>
+    <div class="box"><div class="label">Single color · inherits any one ink</div>
+      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#5A4A40" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted.</text></svg>
+      <div class="small">rooted-logo-mono.svg · shown in Bark. Use for stamps, embossing, one-color print, and whenever green cannot be printed accurately.</div></div>
+    <div class="box"><div class="label">Stacked · with spine and tagline</div>
+      <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#221A16" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted<tspan fill="#4F7A3B">.</tspan></text><line x1="1" y1="132" x2="519" y2="132" stroke="#221A16" stroke-width="1.5"/><circle cx="8" cy="132" r="5.5" fill="#4F7A3B"/><circle cx="260" cy="132" r="5.5" fill="#4F7A3B"/><circle cx="512" cy="132" r="5.5" fill="#4F7A3B"/><text x="0" y="176" fill="#221A16" style="font-family:var(--font-label);font-size:17px;letter-spacing:.02em">Good work. Good coffee. Good news.</text></svg>
+      <div class="small">rooted-logo-stacked.svg · letterhead, tote, the back of the bag</div></div>
+    <div class="box c12" style="grid-column:span 2"><div class="label">Bag spine · shelf-facing</div>
+      <svg viewBox="0 0 600 64" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="64" fill="#221A16"/><text x="20" y="41" font-size="28" fill="#F5EFE4" style="font-family:var(--font-display);font-variation-settings:'opsz' 36,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted<tspan fill="#4F7A3B">.</tspan></text><line x1="130" y1="32" x2="430" y2="32" stroke="#F5EFE4" stroke-opacity=".5"/><circle cx="190" cy="32" r="4" fill="#4F7A3B"/><circle cx="280" cy="32" r="4" fill="#4F7A3B"/><circle cx="370" cy="32" r="4" fill="#4F7A3B"/><text x="446" y="36" fill="#C9B8A2" style="font-family:var(--font-label);font-size:11px;letter-spacing:.08em;text-transform:uppercase">Peru · washed · 340g</text></svg>
+      <div class="small">rooted-spine.svg · the right-hand label changes per lot</div></div>
+    <div class="box"><div class="label">Small-application mark · 24px · and favicon · 32px</div>
+      <div style="display:flex;gap:var(--s-8);align-items:center;flex-wrap:wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" style="color:#221A16"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="15.5" r="4.5" fill="#4F7A3B"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" style="color:#221A16"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="15.5" r="4.5" fill="#4F7A3B"/></svg>
+        <svg width="48" height="48" viewBox="0 0 24 24" style="color:#221A16"><line x1="12" y1="2" x2="12" y2="22" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="15.5" r="4.5" fill="#4F7A3B"/></svg>
+        <svg width="32" height="32" viewBox="0 0 32 32"><rect width="32" height="32" fill="#221A16"/><line x1="16" y1="4" x2="16" y2="28" stroke="#F5EFE4" stroke-width="2.5"/><circle cx="16" cy="20" r="5.5" fill="#4F7A3B"/></svg>
+        <svg width="64" height="64" viewBox="0 0 32 32"><rect width="32" height="32" fill="#221A16"/><line x1="16" y1="4" x2="16" y2="28" stroke="#F5EFE4" stroke-width="2.5"/><circle cx="16" cy="20" r="5.5" fill="#4F7A3B"/></svg>
+      </div>
+      <div class="small">rooted-mark-24.svg · rooted-favicon.svg. Social avatars, app icons, the stamp on a subscription box.</div></div>
+    <div class="box"><div class="label">Wordmark at 24px</div>
+      <div style="display:flex;gap:var(--s-8);align-items:baseline;flex-wrap:wrap">
+        <span class="wm" style="font-size:24px;font-variation-settings:'opsz' 24,'wght' 600,'SOFT' 100,'WONK' 1">rooted<span class="dot">.</span></span>
+        <span class="wm" style="font-size:24px;font-variation-settings:'opsz' 24,'wght' 600,'SOFT' 100,'WONK' 1;background:#221A16;color:#F5EFE4;padding:6px 10px">rooted<span class="dot">.</span></span>
+      </div>
+      <div class="small">Below 24px use the mark, not the wordmark.</div></div>
+  </div>
+</section>
+
+<section id="taproot">
+  <h2>The taproot</h2>
+  <p>A vertical rule with nodes, used as structure. Each node marks a real step, in the order it happened. On the bag it is the roast log. On the site it is the left rule of a section that lists steps: the revenue order, the twelve months, the roast. It is never decoration, never a background pattern, and it never branches.</p>
+  <div class="grid" style="margin-top:var(--s-8)">
+    <div class="c6">
+      <div class="root">
+        <div class="entry"><span class="node" style="top:4px"></span><div class="label">Origin</div><div class="log">Cajamarca, Peru</div></div>
+        <div class="entry"><span class="node" style="top:4px"></span><div class="label">Process</div><div class="log">Washed</div></div>
+        <div class="entry"><span class="node" style="top:4px"></span><div class="label">Roasted</div><div class="log">Tue 25 Aug</div></div>
+        <div class="entry"><span class="node" style="top:4px"></span><div class="label">Cupped by</div><div class="log">the cohort, Thursday</div></div>
+      </div>
+      <p class="small" style="margin-top:var(--s-6)">The bag log, as chosen: origin, process, roast date, cupped by. Four nodes. Charge temperature and first crack stay in the roaster's notebook.</p>
+    </div>
+    <div class="c6">
+      <div class="root">
+        <div class="entry"><span class="node" style="top:4px"></span><h4 style="margin-top:0">Anchor accounts</h4><p class="small">Standing wholesale orders from churches, schools, and offices. Contracted, invoiced, and predictable enough to plan payroll around.</p></div>
+        <div class="entry"><span class="node" style="top:4px"></span><h4 style="margin-top:0">Subscriptions</h4><p class="small">Recurring bags shipped to households. Better margin, and it builds a base of people with a stake in how this turns out.</p></div>
+        <div class="entry"><span class="node" style="top:4px"></span><h4 style="margin-top:0">Pop-ups</h4><p class="small">Markets, events, and being present in the neighborhood. It doesn't move much volume, but it's how people meet us and how new hires learn the counter.</p></div>
+      </div>
+      <p class="small" style="margin-top:var(--s-6)">The same device on the site, carrying the revenue order from the current index copy. The order is the information; the nodes just make it visible.</p>
+    </div>
+  </div>
+</section>
+
+<section id="layout">
+  <h2>Spacing, grid, corners</h2>
+  <div class="grid">
+    <div class="c4">
+      <h4 style="margin-top:0">Spacing</h4>
+      <p class="small">4px base. Steps: 4, 8, 12, 16, 24, 32, 48, 64, 96, 128. Section padding 64 desktop, 48 mobile. Paragraph gap 16. Nothing lands between steps.</p>
+    </div>
+    <div class="c4">
+      <h4 style="margin-top:0">Grid</h4>
+      <p class="small">12 columns to 1120px, 24px gutter, 24px page margin. 4 columns on mobile, 16px gutter, 20px margin. Body text never wider than 62 characters.</p>
+    </div>
+    <div class="c4">
+      <h4 style="margin-top:0">Corners and borders</h4>
+      <p class="small">If it is not a node, it is not round. Every corner is square: buttons, fields, cards, photographs, tables. Borders are 1px hairlines in the rule color; emphasis borders are 1px in the text color. No drop shadows. Depth is a change of surface or a hairline.</p>
+    </div>
+  </div>
+  <h3>Components, minimal</h3>
+  <div class="grid">
+    <div class="c6 box">
+      <div class="label" style="margin-bottom:var(--s-3)">Buttons and a field</div>
+      <div style="display:flex;gap:var(--s-3);flex-wrap:wrap;margin-bottom:var(--s-4)"><a class="btn" href="#">Join the waitlist</a><a class="btn secondary" href="#">Open an account</a></div>
+      <input class="field" placeholder="Email">
+      <p class="small" style="margin-top:var(--s-3)">Primary is Roast fill. Secondary is a 1px Roast border. Focus is a 2px Green ring, offset 2px. Labels say what happens: Join, Open, Send.</p>
+    </div>
+    <div class="c6 box" data-theme="dark">
+      <div class="label" style="margin-bottom:var(--s-3)">Dark set</div>
+      <div style="display:flex;gap:var(--s-3);flex-wrap:wrap;margin-bottom:var(--s-4)"><a class="btn" href="#">Join the waitlist</a><a class="btn secondary" href="#">Open an account</a></div>
+      <input class="field" placeholder="Email">
+      <p class="small" style="margin-top:var(--s-3)">Same tokens, flipped. Green still only appears as the focus ring and the period.</p>
+    </div>
+  </div>
+</section>
+
+<section id="bag">
+  <h2>The bag</h2>
+  <div class="grid">
+    <div class="c4"><div class="bag">
+      <div class="valve"></div>
+      <div class="wm bwm">rooted<span class="dot">.</span></div>
+      <div class="origin">Cajamarca, Peru<br>washed · medium</div>
+      <div class="bspine"></div>
+      <div class="bn" style="top:180px"></div><div class="bl" style="top:178px"><span class="k">Origin</span>Cajamarca, Peru</div>
+      <div class="bn" style="top:224px"></div><div class="bl" style="top:222px"><span class="k">Process</span>Washed</div>
+      <div class="bn" style="top:268px"></div><div class="bl" style="top:266px"><span class="k">Roasted</span>Tue 25 Aug</div>
+      <div class="bn" style="top:312px"></div><div class="bl" style="top:310px"><span class="k">Cupped by</span>the cohort, Thursday</div>
+      <div class="wt">340g <small>12 OZ</small></div>
+      <div class="tag">Good work.<br>Good coffee.<br>Good news.</div>
+    </div></div>
+    <div class="c8">
+      <h4 style="margin-top:0">Front</h4>
+      <p class="small">Wordmark top left. Origin line in Fraunces italic. Taproot with the four-entry log. Weight bottom left, tagline bottom right. Nothing else on the front. No percentage badge, no mission line, no photograph.</p>
+      <h4>Back</h4>
+      <p class="small">The stacked lockup at the top. Then, in body type at 9pt or larger, the paragraph from the top of this page, word for word, including the two fixed sentences about the justice system. Then the transparency line: the importer's published farm price for this lot, in the log face. Then the church line: "rooted grew out of South Tryon Community United Methodist Church and the neighbors of Brookhill Village and Southside." Then the address and the legal name once the legal structure is decided. Leave a blank for it until then; do not print a placeholder name.</p>
+      <h4>Spine</h4>
+      <p class="small">The spine lockup, Paper on Roast, with the per-lot label on the right.</p>
+      <h4>Material</h4>
+      <p class="small">Unbleached or natural-white kraft with a matte finish, not glossy, not metallic. One-color print (Roast) plus green as a spot color if the printer can hold it; if not, use the single-color mark and let the green go. Never stretch the wordmark to fit a bag width. Scale it and leave the space.</p>
+    </div>
+  </div>
+</section>
+
+<section id="photo">
+  <h2>Photography</h2>
+  <p>Photograph a workplace. Hands mid-task. Green coffee in the bag it arrived in. The drum, the chaff tray, the cooling bin, a scoop of beans on the cupping table. The church building from the sidewalk on South Tryon. The room with the roaster in it, and the room with the tables in it, which is the same room.</p>
+  <div class="grid">
+    <div class="c6">
+      <h4 style="margin-top:0">Light</h4>
+      <p class="small">Daylight, from the side or behind. Morning on South Tryon if you can get it. No flash, no ring light, no studio backdrop. Let the room be the room.</p>
+      <h4>Color</h4>
+      <p class="small">Warm neutral. No heavy filters, no fade, no orange-and-teal grade. The photograph should sit next to Paper and Roast without fighting them. If in doubt, less saturation, not more.</p>
+      <h4>Framing</h4>
+      <p class="small">Close and level. The camera is at the height of the work, not above it. Square crops are fine; square corners always.</p>
+    </div>
+    <div class="c6">
+      <h4 style="margin-top:0">People</h4>
+      <p class="small">A cohort member is photographed the way a skilled worker is photographed: at work, competent, mid-task, not looking at the camera for sympathy. Faces only with written consent that the person can revoke at any time, and revocation means the photograph comes down everywhere within a week. Never before-and-after. Never a group photo that reads as staff versus program. If the pastor is in the frame, he is holding a scoop or a mug like everyone else.</p>
+      <h4>Never</h4>
+      <p class="small">Clasped hands. A single tear. A person looking hopefully out a window. Anyone photographed to look poor. Stock photography of any kind. Photographs of Brookhill or Southside residences without the residents.</p>
+    </div>
+  </div>
+</section>
+
+<section id="voice">
+  <h2>Voice</h2>
+  <p>Short sentences. Concrete nouns. "We," never "the organization." "Neighbors," never "beneficiaries." Explain the business by how the money moves and who does the work, not by who it helps. Read every line out loud. If it sounds like a brochure, cut it. No epigram closing a paragraph. No three-item lists for rhythm. Go easy on em-dashes. Two registers at once: a workforce funder and a Sunday School class read the same sentence and both find it addressed to them.</p>
+  <div class="grid">
+    <div class="c6">
+      <h4 style="margin-top:0">Fixed lines. Use as written.</h4>
+      <ul class="dont">
+        <li><strong>Naming the justice system:</strong> Most of the people we hire have been through the justice system. We hire them as roasters, and roaster is the job title.</li>
+        <li><strong>Involvement:</strong> We roast coffee, we hire and train neighbors to do the work, and the people who live here help run it.</li>
+        <li><strong>The church:</strong> rooted grew out of South Tryon Community United Methodist Church and the neighbors of Brookhill Village and Southside.</li>
+        <li><strong>The honest number:</strong> Year one, the coffee pays part of the wages. Not all of them.</li>
+        <li><strong>Sourcing:</strong> We buy from importers who publish what the farmer was paid, and we print it on the bag.</li>
+        <li><strong>Tagline:</strong> Good work. Good coffee. Good news.</li>
+        <li><strong>Sign-off:</strong> Let's grow something beautiful together. Stay rooted.</li>
+      </ul>
+    </div>
+    <div class="c6">
+      <h4 style="margin-top:0">Use</h4>
+      <div class="use">cohort · colleague · craft · kinship · belonging · wage · trade · neighbor · neighbors · these blocks · table · roast · harvest · ground · roaster · anchor account · the log</div>
+      <h4>Refuse, including in captions and alt text</h4>
+      <div class="refuse">beneficiary · at-risk · underserved · giving back · hand up · second chance (as a slogan) · transformation story · ex-con · offender · the less fortunate · helping those in need · neighborhood-owned (until there is a mechanism) · cooperative (as a plan or a denial; the legal structure is open) · direct trade · any impact number</div>
+    </div>
+  </div>
+</section>
+
+<section id="files">
+  <h2>Files in this kit</h2>
+  <table>
+    <tr><th>File</th><th>What it is</th></tr>
+    <tr><td>rooted-tokens.css</td><td>Every value on this page as CSS custom properties. Paste into the site unchanged.</td></tr>
+    <tr><td>rooted-logo-primary.svg · -primary-dark.svg · -mono.svg</td><td>Wordmark, three inks</td></tr>
+    <tr><td>rooted-logo-stacked.svg</td><td>Wordmark with spine and tagline</td></tr>
+    <tr><td>rooted-spine.svg</td><td>Bag spine lockup</td></tr>
+    <tr><td>rooted-mark-24.svg · rooted-favicon.svg</td><td>Small-application mark and favicon, no font required</td></tr>
+    <tr><td>rooted-usage-sheet.html</td><td>One printable page for volunteers</td></tr>
+    <tr><td>CLAUDE.md</td><td>Repo rules for the site build</td></tr>
+  </table>
+  <p class="small" style="margin-top:var(--s-6)">The wordmark files use live text and load Fraunces from Google Fonts. They render correctly in any browser with a connection. Outlined-path versions, which need no font and can go straight to a printer, follow once font files can be fetched.</p>
+</section>
+
+</div>
+</body>
+</html>

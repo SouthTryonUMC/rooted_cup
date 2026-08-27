@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 64" role="img" aria-label="rooted. bag spine">
+  <title>rooted. bag spine lockup, shelf-facing. Paper on Roast. Replace the right-hand label per lot.</title>
+  <style>@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,600,100,1&amp;family=Courier+Prime&amp;display=swap");
+    .wm{font-family:"Fraunces","Iowan Old Style",Georgia,serif;font-variation-settings:"opsz" 36,"wght" 600,"SOFT" 100,"WONK" 1;font-weight:600}
+    .lab{font-family:"Courier Prime","Courier New",monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase}</style>
+  <rect width="600" height="64" fill="#221A16"/>
+  <text class="wm" x="20" y="41" font-size="28" fill="#F5EFE4">rooted<tspan fill="#4F7A3B">.</tspan></text>
+  <line x1="130" y1="32" x2="430" y2="32" stroke="#F5EFE4" stroke-opacity="0.5" stroke-width="1"/>
+  <circle cx="190" cy="32" r="4" fill="#4F7A3B"/>
+  <circle cx="280" cy="32" r="4" fill="#4F7A3B"/>
+  <circle cx="370" cy="32" r="4" fill="#4F7A3B"/>
+  <text class="lab" x="446" y="36" fill="#C9B8A2">Peru · washed · 340g</text>
+</svg>

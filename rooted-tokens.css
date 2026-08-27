@@ -1,0 +1,107 @@
+/* rooted. design tokens — v1.0, August 2026
+   Direction: Cup. Paste into the site build unchanged.
+   Fonts: Fraunces, Instrument Sans, Courier Prime (all SIL OFL 1.1, Google Fonts).
+   Contrast ratios below were computed, not estimated. Text pairs pass WCAG AA (4.5).
+   Green is a mark, never text. */
+
+:root {
+  /* ---- Palette, named by what it is ---- */
+  --roast:   #221A16;  /* ink; dark surface.            Paper on Roast 14.95 */
+  --roast-2: #2A201B;  /* second dark surface.          Paper on Roast-2 13.89 */
+  --bark:    #5A4A40;  /* secondary text on light.      Bark on Paper 7.37, on Paper-2 6.70 */
+  --chaff:   #C9B8A2;  /* secondary text on dark.       Chaff on Roast 8.85, on Roast-2 8.22 */
+  --paper:   #F5EFE4;  /* light surface; the bag.       Roast on Paper 14.95 */
+  --paper-2: #EDE4D5;  /* second light surface.         Roast on Paper-2 13.57 */
+  --green:   #4F7A3B;  /* the period. the nodes. never text.
+                          Green on Paper 4.39, on Paper-2 3.99, on Roast 3.41, on Roast-2 3.16 (graphic, 3.0) */
+  --rule-light: #DCCFBB; /* hairline rules on Paper */
+  --rule-dark:  #4A3C33; /* hairline rules on Roast */
+
+  /* Usage ratio across a page, roughly: Paper 58, Roast 30, Bark/Chaff 10, Green under 2. */
+
+  /* ---- Light set (default) ---- */
+  --surface:    var(--paper);
+  --surface-2:  var(--paper-2);
+  --text:       var(--roast);
+  --text-2:     var(--bark);
+  --rule:       var(--rule-light);
+  --node:       var(--green);
+  --focus:      var(--green);
+
+  /* ---- Type families ---- */
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body:    "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-label:   "Courier Prime", "Courier New", monospace;
+
+  /* Fraunces axes. WONK is on in the wordmark only. */
+  --display-axes:  "opsz" 144, "wght" 500, "SOFT" 100, "WONK" 0;
+  --wordmark-axes: "opsz" 144, "wght" 600, "SOFT" 100, "WONK" 1;
+
+  /* ---- Type scale (desktop / mobile) ---- */
+  --h1-size: 3.5rem;    --h1-size-m: 2.5rem;   --h1-lh: 1.02; --h1-ls: -0.01em;  --h1-wght: 500; --h1-opsz: 144;
+  --h2-size: 2.25rem;   --h2-size-m: 1.875rem; --h2-lh: 1.10; --h2-ls: -0.005em; --h2-wght: 500; --h2-opsz: 72;
+  --h3-size: 1.625rem;  --h3-size-m: 1.375rem; --h3-lh: 1.20; --h3-ls: 0;        --h3-wght: 500; --h3-opsz: 36;
+  --h4-size: 1.125rem;  --h4-size-m: 1.0625rem;--h4-lh: 1.35; --h4-ls: 0;        --h4-wght: 600; /* Instrument Sans */
+  --body-size: 1.0625rem; --body-size-m: 1rem; --body-lh: 1.55; --body-ls: 0;    --body-wght: 400;
+  --small-size: 0.9375rem; --small-lh: 1.50;   --small-ls: 0;                     --small-wght: 400;
+  --label-size: 0.75rem;   --label-lh: 1.40;   --label-ls: 0.06em;                --label-wght: 400; /* Courier Prime, uppercase */
+  --log-size:   0.8125rem; --log-lh: 1.40;     --log-ls: 0;                       --log-wght: 400;   /* Courier Prime, sentence case */
+
+  --measure: 62ch;   /* body text never wider than this */
+
+  /* ---- Spacing, 4px base ---- */
+  --s-1: 0.25rem;  /* 4  */
+  --s-2: 0.5rem;   /* 8  */
+  --s-3: 0.75rem;  /* 12 */
+  --s-4: 1rem;     /* 16 */
+  --s-6: 1.5rem;   /* 24 */
+  --s-8: 2rem;     /* 32 */
+  --s-12: 3rem;    /* 48 */
+  --s-16: 4rem;    /* 64 */
+  --s-24: 6rem;    /* 96 */
+  --s-32: 8rem;    /* 128 */
+
+  /* ---- Grid ---- */
+  --page-max: 1120px;
+  --page-margin: 1.5rem;     /* 24 desktop */
+  --page-margin-m: 1.25rem;  /* 20 mobile */
+  --gutter: 1.5rem;          /* 24 desktop */
+  --gutter-m: 1rem;          /* 16 mobile */
+  --cols: 12;                /* 4 on mobile */
+
+  /* ---- Radius and border policy, stated as a rule ----
+     If it is not a node, it is not round.
+     Every corner in the system is square: buttons, fields, cards, photographs, tables.
+     The only round shape is the node (and the period), which is a circle.
+     Borders are 1px hairlines in --rule; emphasis borders are 1px in --text.
+     No drop shadows. Depth is a change of surface (Paper to Paper-2) or a hairline. */
+  --radius: 0;
+  --radius-node: 50%;
+  --border: 1px solid var(--rule);
+  --border-strong: 1px solid var(--text);
+  --node-size: 0.6875rem;   /* 11px */
+  --spine-width: 1.5px;
+
+  /* ---- Focus ---- */
+  --focus-ring: 2px solid var(--focus);
+  --focus-offset: 2px;
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --dur: 160ms;
+}
+
+/* Dark set. Apply to <body data-theme="dark"> or any container. */
+[data-theme="dark"] {
+  --surface:   var(--roast);
+  --surface-2: var(--roast-2);
+  --text:      var(--paper);
+  --text-2:    var(--chaff);
+  --rule:      var(--rule-dark);
+  --node:      var(--green);
+  --focus:     var(--green);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur: 0ms; }
+}

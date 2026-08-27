@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="rooted.">
+  <title>rooted. primary wordmark, dark set</title>
+  <style>@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,600,100,1&amp;family=Courier+Prime&amp;display=swap");
+    text{font-family:"Fraunces","Iowan Old Style",Georgia,serif;font-variation-settings:"opsz" 144,"wght" 600,"SOFT" 100,"WONK" 1;font-weight:600}</style>
+  <text x="0" y="96" font-size="112" letter-spacing="-1" fill="#F5EFE4">rooted<tspan fill="#4F7A3B">.</tspan></text>
+</svg>
