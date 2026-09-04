@@ -302,11 +302,27 @@ form detection must be enabled and the site redeployed once**, or the form
 collects nothing. Off-Netlify the fetch fails and the inline message says to
 email — expected, not a bug. Lay out so a real cart can drop in later.
 
-### Photos
+### Photos (wired in Sept 2026, superseding the no-photos decision)
 
-**None on the landing, by decision.** Type and the surfaces carry the page.
-HTML comments mark the slots (hero strip, 02, 04, 05) for real photographs
-later, under the photography rules above.
+Six web images, all run through the kit's inks via CSS (`.ph-roast`:
+grayscale at .62 opacity over Roast; `.ph-ember`: grayscale multiplied over
+Ember, used ONLY inside 02 where Ember is the surface — never on Paper).
+Never a natural-color photo mixed in; never a caption or alt text claiming
+stock equipment as ours; nothing implying present-tense roasting.
+
+| File | Source | Where |
+|---|---|---|
+| hero-steeple.jpg | IMG_1293 (Darryl) | hero strip |
+| hero-tray.jpg | Volodymyr Proskurovskyi, Unsplash | hero strip |
+| hero-beans.jpg | Mike Kenneally, Unsplash | hero strip |
+| crack-facade.jpg | IMG_5032 (Darryl) | 02 closer, ember treatment |
+| drop-church.jpg | IMG_5033 (Darryl) | 04, "Where we are now" |
+| cup-beans.jpg | Moritz Knöringer, Unsplash | 05, beside the form |
+
+The IMG_*.jpeg and *-unsplash.jpg originals stay in the repo as source
+masters — never link them from pages (2–10MB each); regenerate web crops
+with Pillow (quality 78, progressive). IMG_1292 is held in reserve.
+Unsplash license needs no attribution; credits recorded here anyway.
 
 ## Print masters
 
