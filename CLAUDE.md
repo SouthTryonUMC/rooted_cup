@@ -274,6 +274,10 @@ section tags).
 
 - **No lot, no blend, no tasting notes named anywhere.**
 - The vision line opens 01 as its display statement; it appears once.
+- The vision and sign-off stagewords end in a green period (`.gp`) — the
+  kit's period, passing as graphic on Paper-2 (3.99) and Roast (3.41).
+  Never on Ember. The 00/01 seam carries a hairline so the Paper to
+  Paper-2 step registers on phones.
 - The mission is the 02 pull quote (`.mission` in rooted-landing.css):
   display size between body and stageword, one emphasis rule, no box.
 - The lede is the 01 paragraph; the hiring naming now lives in the mission.

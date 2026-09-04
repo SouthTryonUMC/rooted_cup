@@ -105,6 +105,15 @@ a { color: inherit; }
 .sf-drop  { background: var(--roast);   color: var(--paper); }
 .sf-cup   { background: var(--roast);   color: var(--paper); border-top: 1px solid var(--rule-dark); }
 
+/* The green period. The kit's period, on the two fixed display statements
+   only (vision on Paper-2 at 3.99, sign-off on Roast at 3.41 — both pass as
+   graphic). Never on the Ember surface (2.33), never on body text. */
+.gp { color: var(--green); }
+
+/* The 00/01 seam: Paper to Paper-2 is too quiet on a phone, so the boundary
+   gets a hairline — depth is a surface change or a hairline, per the kit. */
+.sf-dry { border-top: 1px solid var(--rule-light); }
+
 /* Secondary ink per surface, so captions never fall below AA. */
 .sf-green .dim, .sf-dry .dim { color: var(--bark); }
 .sf-crack .dim { color: var(--roast); opacity: .82; }
