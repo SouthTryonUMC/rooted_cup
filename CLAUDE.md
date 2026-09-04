@@ -26,15 +26,30 @@ write toward grocery. The site must not imply a scale we do not have.
 
 Brand direction: **Cup + Ember** (locked; see "The kit" below).
 
+## Café-first pivot (Sept 2026)
+
+The business plan changed: **a café opens first, roasting comes later.**
+The café opens Winter 2026 at 2516 South Tryon Street, pouring a partner
+roaster's coffee; neighbors are hired and trained as baristas, paid hourly
+from the first day of training. Roasting goes into the same building once
+renovation is done; the aim is 2027. Renovation has NOT started and we do
+NOT roast yet — no copy anywhere may claim present-tense roasting. The
+phases (03's rows) are the café, then the roastery, then wholesale and
+subscriptions, and each phase has to carry payroll before the next one
+starts. The roast-log design system stays exactly as it is; "Coffee,
+roasted here" returns as the 03 heading when the roaster fires (kept in an
+HTML comment). Where brief v2.2 assumes roasting today, this pivot wins.
+
 ## Fixed language. Use as written, never paraphrase.
 
 From the brief (v2.2):
 
 - **Vision:** A world where everyone can belong, heal, grow, and flourish together.
-- **Mission:** We exist to provide meaningful employment, community support,
-  and spiritual depth for neighbors who have been pushed to the margins —
-  including the many among us who carry the weight of incarceration, our own
-  or someone we love.
+- **Mission (locked wording, Darryl, Sept 2026 — supersedes the brief's; it
+  is the 02 pull quote, and "spiritual depth" stays):** We exist to provide
+  meaningful employment opportunities, community support, and spiritual
+  depth for persons who have been formerly incarcerated and historically
+  disadvantaged.
 - **Tagline:** Good work. Good coffee. Good news.
 - **Values shorthand:** Belong. Heal. Grow. Together.
 - **Sign-off:** Let's grow something beautiful together. Stay rooted.
@@ -55,9 +70,9 @@ From the brief (v2.2):
 
 The site's standing expressions of the above, also fixed:
 
-- **The paragraph:** rooted is a neighborhood enterprise in South Charlotte.
-  We roast coffee, we hire and train neighbors to do the work, and the people
-  who live here help run it.
+- **The lede (Sept 2026, replacing the old "we roast coffee" paragraph):**
+  rooted is a neighborhood enterprise in South Charlotte. A café first,
+  roasting after, staffed and shaped by the people who live here.
 - **The church line:** rooted grew out of South Tryon Community United
   Methodist Church and the neighbors of Brookhill Village and Southside.
 - **The honest number:** Year one, the coffee pays part of the wages.
@@ -257,9 +272,11 @@ section tags).
 
 ### Copy decisions (Darryl, Aug 2026)
 
-- **No lot, no blend, no tasting notes named anywhere.** The site promises
-  roasting, not a bean.
-- The paragraph is the 01 lede; the hiring facts sit apart (see above).
+- **No lot, no blend, no tasting notes named anywhere.**
+- The vision line opens 01 as its display statement; it appears once.
+- The mission is the 02 pull quote (`.mission` in rooted-landing.css):
+  display size between body and stageword, one emphasis rule, no box.
+- The lede is the 01 paragraph; the hiring naming now lives in the mission.
 - No "neighborhood-led / coalition-built," no cooperative sentence, no
   "a ministry of" — the church line is the fixed sentence, in 04 and the
   footer.
