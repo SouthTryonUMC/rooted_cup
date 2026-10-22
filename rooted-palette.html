@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>rooted. Palette &amp; Type</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..700,0..100,0..1;1,9..144,300..700,0..100,0..1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Courier+Prime:wght@400;700&display=swap');
+
+/* Layout: one column on Paper, groups of swatches in pairs, then one full-width
+   Ember band as the single splash, then the three typefaces. Single light look
+   on purpose: this is the bag, and the bag is Paper. */
+:root {
+  --paper: #F5EFE4; --paper-2: #EDE4D5;
+  --roast: #221A16; --roast-2: #2A201B;
+  --bark: #5A4A40;  --chaff: #C9B8A2;
+  --green: #4F7A3B; --ember: #E8A33C;
+  --rule: #DCCFBB;  --rule-dark: #4A3C33;
+  --display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --label: "Courier Prime", "Courier New", monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--roast); font-family: var(--body); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+.wrap { max-width: 960px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+section { padding-block: 56px; border-top: 1px solid var(--rule); }
+p { margin: 0; max-width: 62ch; }
+h2 { font-family: var(--display); font-variation-settings: "opsz" 72, "wght" 500, "SOFT" 100, "WONK" 0; font-weight: 500; font-size: clamp(1.875rem, 4vw, 2.25rem); line-height: 1.1; margin: 0 0 12px; text-wrap: balance; }
+.label { font-family: var(--label); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--bark); }
+
+/* The wordmark, with the bean */
+.wm { font-family: var(--display); font-variation-settings: "opsz" 144, "wght" 600, "SOFT" 100, "WONK" 1; font-weight: 600; letter-spacing: -.01em; line-height: 1; }
+.wm .bean { display: inline-block; width: .208em; height: .27em; vertical-align: baseline; margin-left: .015em; color: var(--green); }
+.wm .vh { display: inline-block; width: 0; overflow: hidden; }
+
+header { padding-block: 48px 40px; }
+header .wm { font-size: clamp(4rem, 15vw, 8rem); margin: 18px 0 20px; }
+header p { color: var(--bark); }
+
+/* Swatches */
+.group { margin-top: 36px; }
+.group > .label { margin-bottom: 10px; }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pair.one { grid-template-columns: 1fr 1fr; }
+.sw { min-width: 0; }
+.chip { height: 128px; border: 1px solid var(--rule); padding: 14px 16px; display: flex; align-items: flex-end; }
+.chip .n { font-family: var(--display); font-variation-settings: "opsz" 36, "wght" 500, "SOFT" 100, "WONK" 0; font-size: 22px; line-height: 1; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; margin-top: 10px; font-family: var(--label); font-size: 13px; color: var(--roast); font-variant-numeric: tabular-nums; }
+.role { margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--bark); }
+.hex { font: inherit; font-weight: 700; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; border-bottom: 1px dotted currentColor; }
+.hex:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+.copied { font-family: var(--label); font-size: 12px; color: var(--bark); }
+
+.mix .label { display: block; margin-bottom: 10px; }
+.ratio { display: grid; grid-template-columns: 58fr 30fr 10fr 2fr; height: 48px; border: 1px solid var(--rule); }
+.mixlist { list-style: none; margin: 12px 0 0; padding: 0; }
+.mixlist li { display: flex; justify-content: space-between; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--rule); font-size: 15px; }
+.mixlist b { font-weight: 600; }
+.mixlist span { font-family: var(--label); font-size: 13px; color: var(--bark); font-variant-numeric: tabular-nums; }
+
+/* The splash: Ember as the one full surface */
+.splash { background: var(--ember); color: var(--roast); padding-block: 48px; }
+.splash .label { color: var(--roast); }
+.splash h2 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: .98; margin: 14px 0 18px; }
+.splash .meta { margin-top: 0; font-size: 15px; }
+.splash .hex { font-size: 15px; }
+.splash .copied { color: var(--roast); }
+.splash p.use { margin-top: 18px; }
+.rules { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.rule-card { min-width: 0; padding: 16px; border: 1px solid var(--roast); }
+.rule-card .label { color: var(--roast); margin-bottom: 8px; display: block; }
+.demo { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.demo span { font-family: var(--label); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; padding: 8px 10px; }
+.rule-card p { font-size: 15px; line-height: 1.45; }
+
+/* Type */
+.face { display: grid; grid-template-columns: 220px 1fr; gap: 24px; padding-block: 28px; border-bottom: 1px solid var(--rule); }
+.face:last-of-type { border-bottom: 0; }
+.face .who { min-width: 0; }
+.face .who b { display: block; font-family: var(--body); font-weight: 600; font-size: 18px; margin-bottom: 4px; }
+.face .who .label { display: block; line-height: 1.6; }
+.spec { min-width: 0; }
+.spec-fraunces { font-family: var(--display); font-variation-settings: "opsz" 144, "wght" 500, "SOFT" 100, "WONK" 0; font-weight: 500; font-size: clamp(2.25rem, 6vw, 3.5rem); line-height: 1.02; letter-spacing: -.01em; text-wrap: balance; }
+.spec-fraunces em { font-style: italic; font-weight: 400; font-variation-settings: "opsz" 144, "wght" 400, "SOFT" 100, "WONK" 0; }
+.spec-instrument { font-family: var(--body); font-size: 17px; line-height: 1.55; max-width: 52ch; }
+.spec-instrument b { display: block; font-weight: 600; font-size: 22px; line-height: 1.3; margin-bottom: 8px; }
+.spec-courier { font-family: var(--label); }
+.spec-courier .big { font-size: 22px; letter-spacing: .06em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+.spec-courier .small { font-size: 15px; display: block; color: var(--bark); }
+
+.scale { width: 100%; border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.scale th, .scale td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--rule); vertical-align: baseline; }
+.scale th { font-family: var(--label); font-weight: 400; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--bark); }
+.scale td { font-family: var(--label); font-size: 13px; }
+.scale td:first-child { font-family: var(--body); font-weight: 600; font-size: 15px; }
+.tablewrap { overflow-x: auto; }
+
+footer { padding-block: 32px 48px; border-top: 1px solid var(--rule); }
+footer p { font-family: var(--label); font-size: 13px; color: var(--bark); max-width: none; }
+
+@media (max-width: 640px) {
+  .pair, .pair.one, .rules { grid-template-columns: 1fr; }
+  .face { grid-template-columns: 1fr; gap: 12px; }
+  section { padding-block: 44px; }
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="label">rooted. &middot; palette &amp; type &middot; v1.2 &middot; October 2026</div>
+  <div class="wm" aria-label="rooted.">rooted<svg class="bean" viewBox="0 0 100 130" aria-hidden="true" focusable="false"><defs><mask id="bean-m"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="currentColor" mask="url(#bean-m)" transform="rotate(-12 50 65)"/></svg><span class="vh">.</span></div>
+  <p>The colors and the fonts, and nothing else. Tap any hex code to copy it.</p>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <h2>Palette</h2>
+      <p>Paper is most of every piece. Roast is the ink. Green is only the bean and the small nodes. Ember is the one splash.</p>
+
+      <div class="group">
+        <div class="label">Light surfaces</div>
+        <div class="pair">
+          <div class="sw"><div class="chip" style="background:#F5EFE4;color:#221A16"><span class="n">Paper</span></div>
+            <div class="meta"><button class="hex" type="button" data-hex="#F5EFE4">#F5EFE4</button><span>RGB 245 239 228</span></div>
+            <div class="role">The main background. The bag.</div></div>
+          <div class="sw"><div class="chip" style="background:#EDE4D5;color:#221A16"><span class="n">Paper-2</span></div>
+            <div class="meta"><button class="hex" type="button" data-hex="#EDE4D5">#EDE4D5</button><span>RGB 237 228 213</span></div>
+            <div class="role">A second light surface, for a quiet change of section.</div></div>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="label">Ink and dark surfaces</div>
+        <div class="pair">
+          <div class="sw"><div class="chip" style="background:#221A16;color:#F5EFE4;border-color:#221A16"><span class="n">Roast</span></div>
+            <div class="meta"><button class="hex" type="button" data-hex="#221A16">#221A16</button><span>RGB 34 26 22</span></div>
+            <div class="role">All text on light. The dark background.</div></div>
+          <div class="sw"><div class="chip" style="background:#2A201B;color:#F5EFE4;border-color:#2A201B"><span class="n">Roast-2</span></div>
+            <div class="meta"><button class="hex" type="button" data-hex="#2A201B">#2A201B</button><span>RGB 42 32 27</span></div>
+            <div class="role">A second dark surface.</div></div>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="label">Secondary text</div>
+        <div class="pair">
+          <div class="sw"><div class="chip" style="background:#5A4A40;color:#F5EFE4;border-color:#5A4A40"><span class="n">Bark</span></div>
+            <div class="meta"><button class="hex" type="button" data-hex="#5A4A40">#5A4A40</button><span>RGB 90 74 64</span></div>
+            <div class="role">Captions and labels on light.</div></div>
+          <div class="sw"><div class="chip" style="background:#C9B8A2;color:#221A16"><span class="n">Chaff</span></div>
+            <div class="meta"><button class="hex" type="button" data-hex="#C9B8A2">#C9B8A2</button><span>RGB 201 184 162</span></div>
+            <div class="role">Captions and labels on dark.</div></div>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="label">The bean</div>
+        <div class="pair one">
+          <div class="sw"><div class="chip" style="background:#4F7A3B;color:#F5EFE4;border-color:#4F7A3B"><span class="n">Green</span></div>
+            <div class="meta"><button class="hex" type="button" data-hex="#4F7A3B">#4F7A3B</button><span>RGB 79 122 59</span></div>
+            <div class="role">Coffee before it is roasted. Only the bean in the wordmark and the small nodes. Never words, never a button, never a background.</div></div>
+          <div class="sw mix"><div class="label">How much of each</div>
+            <div class="ratio" aria-hidden="true"><span style="background:#F5EFE4"></span><span style="background:#221A16"></span><span style="background:#5A4A40"></span><span style="background:#4F7A3B"></span></div>
+            <ul class="mixlist"><li><b>Paper</b><span>58%</span></li><li><b>Roast</b><span>30%</span></li><li><b>Bark and Chaff</b><span>10%</span></li><li><b>Green</b><span>under 2%</span></li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="splash" aria-labelledby="splash-h">
+    <div class="wrap">
+      <div class="label">Splash color</div>
+      <h2 id="splash-h">Ember</h2>
+      <div class="meta"><button class="hex" type="button" data-hex="#E8A33C">#E8A33C</button><span>RGB 232 163 60</span></div>
+      <p class="use">The orange. Coffee at first crack. One splash per piece, used one of two ways.</p>
+      <div class="rules">
+        <div class="rule-card">
+          <span class="label">Do</span>
+          <div class="demo"><span style="background:#221A16;color:#E8A33C">Ember on Roast</span><span style="background:#E8A33C;color:#221A16;border:1px solid #221A16">Roast on Ember</span></div>
+          <p>A full background with Roast text on it, like this band. Or a small accent on a dark background: a link, a button.</p>
+        </div>
+        <div class="rule-card">
+          <span class="label">Never</span>
+          <p>Ember text or shapes on Paper, which is too faint to read. Green on Ember. Ember as a second accent beside another color.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Type</h2>
+      <p>Three families, all free at fonts.google.com under an open license that covers print and packaging. If one is missing, use the fallback and send the file to Darryl before it prints.</p>
+
+      <div class="face" style="margin-top:20px">
+        <div class="who"><b>Fraunces</b><span class="label">Headlines and the wordmark</span><span class="label">Weight 500 &middot; 600 wordmark</span><span class="label">Fallback: Georgia</span></div>
+        <div class="spec"><div class="spec-fraunces">Good work. Good coffee. <em>Good news.</em></div></div>
+      </div>
+      <div class="face">
+        <div class="who"><b>Instrument Sans</b><span class="label">Everything you read</span><span class="label">Weight 400 &middot; 600 subheads</span><span class="label">Fallback: Arial</span></div>
+        <div class="spec"><div class="spec-instrument"><b>A café first. The roaster after.</b>rooted is a neighborhood enterprise in South Charlotte. A café first, roasting after, staffed and shaped by the people who live here.</div></div>
+      </div>
+      <div class="face">
+        <div class="who"><b>Courier Prime</b><span class="label">Labels and the roast log</span><span class="label">Weight 400 &middot; labels in capitals</span><span class="label">Fallback: Courier New</span></div>
+        <div class="spec"><div class="spec-courier"><span class="big">02 &middot; First crack &middot; 196&deg;</span><span class="small">2516 South Tryon Street, Charlotte, NC 28203</span></div></div>
+      </div>
+
+      <div class="group">
+        <div class="label">Sizes, screen</div>
+        <div class="tablewrap">
+          <table class="scale">
+            <thead><tr><th>Use</th><th>Face</th><th>Desktop</th><th>Phone</th><th>Weight</th></tr></thead>
+            <tbody>
+              <tr><td>Headline</td><td>Fraunces</td><td>56px</td><td>40px</td><td>500</td></tr>
+              <tr><td>Section title</td><td>Fraunces</td><td>36px</td><td>30px</td><td>500</td></tr>
+              <tr><td>Subhead</td><td>Fraunces</td><td>26px</td><td>22px</td><td>500</td></tr>
+              <tr><td>Body</td><td>Instrument Sans</td><td>17px</td><td>16px</td><td>400</td></tr>
+              <tr><td>Small</td><td>Instrument Sans</td><td>15px</td><td>15px</td><td>400</td></tr>
+              <tr><td>Label</td><td>Courier Prime</td><td>12px</td><td>12px</td><td>400, capitals</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><p>rooted. &middot; the full rules live in the brand kit &middot; darryl@rootedclt.org</p></div>
+</footer>
+
+<script>
+document.querySelectorAll('.hex').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var hex = btn.getAttribute('data-hex');
+    var show = function () {
+      var note = btn.parentNode.querySelector('.copied');
+      if (!note) { note = document.createElement('span'); note.className = 'copied'; note.setAttribute('role', 'status'); btn.parentNode.appendChild(note); }
+      note.textContent = 'Copied';
+      setTimeout(function () { note.textContent = ''; }, 1500);
+    };
+    var select = function () {
+      var r = document.createRange(); r.selectNodeContents(btn);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    };
+    try {
+      navigator.clipboard.writeText(hex).then(show, select);
+    } catch (e) { select(); }
+  });
+});
+</script>
+</body>
+</html>
