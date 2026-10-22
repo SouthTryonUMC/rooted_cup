@@ -35,7 +35,7 @@ h2 { font-family: var(--display); font-variation-settings: "opsz" 72, "wght" 500
 .wm .vh { display: inline-block; width: 0; overflow: hidden; }
 
 header { padding-block: 48px 40px; }
-header .wm { font-size: clamp(4rem, 15vw, 8rem); margin: 18px 0 20px; }
+header .wm { font-size: clamp(4rem, 15vw, 8rem); margin: 18px 0 0; }
 header p { color: var(--bark); }
 
 /* Swatches */
@@ -99,6 +99,40 @@ header p { color: var(--bark); }
 footer { padding-block: 32px 48px; border-top: 1px solid var(--rule); }
 footer p { font-family: var(--label); font-size: 13px; color: var(--bark); max-width: none; }
 
+@media print {
+  @page { size: letter; margin: 0; }
+  html, body { background: #F5EFE4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .wrap { max-width: none; padding-left: .6in; padding-right: .6in; }
+  header { padding-block: .45in 12px; }
+  header .wm { font-size: 64px; margin-top: 10px; }
+  section { padding-block: 18px; }
+  .typ { break-before: page; padding-top: .45in; border-top: 0; }
+  h2 { font-size: 28px; }
+  .group { margin-top: 12px; }
+  .pal .wrap { display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; align-items: start; }
+  .pal h2 { grid-column: 1 / -1; }
+  .pair { gap: 10px; }
+  .chip { height: 72px; padding: 8px 12px; }
+  .chip .n { font-size: 18px; }
+  .meta { font-size: 11px; gap: 2px 10px; }
+  .role { font-size: 12.5px; }
+  .ratio { height: 40px; }
+  .mixlist li { padding: 5px 0; }
+  .splash { padding-block: 20px 22px; }
+  .splash h2 { font-size: 40px; margin: 6px 0 8px; }
+  .splash p.use { margin-top: 10px; }
+  .rules { margin-top: 14px; }
+  .rule-card { padding: 12px; }
+  .face { padding-block: 12px; grid-template-columns: 190px 1fr; }
+  .spec-fraunces { font-size: 32px; }
+  .spec-instrument { font-size: 15px; }
+  .spec-instrument b { font-size: 18px; margin-bottom: 4px; }
+  .spec-courier .big { font-size: 18px; }
+  .scale th, .scale td { padding-block: 5px; }
+  .group, .sw, .face, .rules, .tablewrap { break-inside: avoid; }
+  .hex { border-bottom: 0; }
+  footer { padding-block: 16px .4in; }
+}
 @media (max-width: 640px) {
   .pair, .pair.one, .rules { grid-template-columns: 1fr; }
   .face { grid-template-columns: 1fr; gap: 12px; }
@@ -110,14 +144,12 @@ footer p { font-family: var(--label); font-size: 13px; color: var(--bark); max-w
 <header class="wrap">
   <div class="label">rooted. &middot; palette &amp; type &middot; v1.2 &middot; October 2026</div>
   <div class="wm" aria-label="rooted.">rooted<svg class="bean" viewBox="0 0 100 130" aria-hidden="true" focusable="false"><defs><mask id="bean-m"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="currentColor" mask="url(#bean-m)" transform="rotate(-12 50 65)"/></svg><span class="vh">.</span></div>
-  <p>The colors and the fonts, and nothing else. Tap any hex code to copy it.</p>
 </header>
 
 <main>
-  <section>
+  <section class="pal">
     <div class="wrap">
       <h2>Palette</h2>
-      <p>Paper is most of every piece. Roast is the ink. Green is only the bean and the small nodes. Ember is the one splash.</p>
 
       <div class="group">
         <div class="label">Light surfaces</div>
@@ -189,7 +221,7 @@ footer p { font-family: var(--label); font-size: 13px; color: var(--bark); max-w
     </div>
   </section>
 
-  <section>
+  <section class="typ">
     <div class="wrap">
       <h2>Type</h2>
       <p>Three families, all free at fonts.google.com under an open license that covers print and packaging. If one is missing, use the fallback and send the file to Darryl before it prints.</p>
