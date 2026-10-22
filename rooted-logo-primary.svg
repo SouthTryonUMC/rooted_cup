@@ -2,5 +2,5 @@
   <title>rooted. primary wordmark</title>
   <style>@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,600,100,1&amp;family=Courier+Prime&amp;display=swap");
     text{font-family:"Fraunces","Iowan Old Style",Georgia,serif;font-variation-settings:"opsz" 144,"wght" 600,"SOFT" 100,"WONK" 1;font-weight:600}</style>
-  <text x="0" y="96" font-size="112" letter-spacing="-1" fill="#221A16">rooted<tspan fill="#4F7A3B">.</tspan></text>
+  <text x="0" y="96" font-size="112" letter-spacing="-1" fill="#221A16">rooted</text><g transform="translate(294.84 65.76) scale(0.23262)"><defs><mask id="bean-1"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="#4F7A3B" mask="url(#bean-1)" transform="rotate(-12 50 65)"/></g>
 </svg>

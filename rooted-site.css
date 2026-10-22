@@ -56,6 +56,8 @@ ul, ol { margin: 0; padding: 0; }
   text-decoration: none;
 }
 .wm .dot { color: var(--node); }
+.wm .bean { display: inline-block; width: .208em; height: .27em; vertical-align: baseline; margin-left: .015em; }
+.vh { display: inline-block; width: 0; overflow: hidden; vertical-align: baseline; }
 
 /* ---- Focus ---- */
 :focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }

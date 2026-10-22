@@ -12,7 +12,7 @@
   --chaff:   #C9B8A2;  /* secondary text on dark.       Chaff on Roast 8.85, on Roast-2 8.22 */
   --paper:   #F5EFE4;  /* light surface; the bag.       Roast on Paper 14.95 */
   --paper-2: #EDE4D5;  /* second light surface.         Roast on Paper-2 13.57 */
-  --green:   #4F7A3B;  /* the period. the nodes. never text.
+  --green:   #4F7A3B;  /* the bean (the wordmark's period). the nodes. never text.
                           Green on Paper 4.39, on Paper-2 3.99, on Roast 3.41, on Roast-2 3.16 (graphic, 3.0) */
   --rule-light: #DCCFBB; /* hairline rules on Paper */
   --rule-dark:  #4A3C33; /* hairline rules on Roast */
@@ -72,7 +72,8 @@
   /* ---- Radius and border policy, stated as a rule ----
      If it is not a node, it is not round.
      Every corner in the system is square: buttons, fields, cards, photographs, tables.
-     The only round shape is the node (and the period), which is a circle.
+     The only round shapes are the node, which is a circle, and the bean that
+     ends the wordmark.
      Borders are 1px hairlines in --rule; emphasis borders are 1px in --text.
      No drop shadows. Depth is a change of surface (Paper to Paper-2) or a hairline. */
   --radius: 0;
@@ -117,5 +118,5 @@
    The rule: Ember is a full surface carrying Roast text, or an accent on
    the dark surfaces (a link, a button, a focus ring there). It is never
    text or graphic on Paper, and it never carries a node. Green keeps its
-   jobs untouched: the period, the nodes. */
+   jobs untouched: the bean, the nodes. */
 :root { --ember: #E8A33C; }

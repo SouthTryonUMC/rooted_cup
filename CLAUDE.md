@@ -190,8 +190,8 @@ Source of truth: `rooted-tokens.css` (v1.1). Paste it unchanged. Summary:
 
 - **Palette:** Paper #F5EFE4 (surface, ~58%), Paper-2 #EDE4D5, Roast #221A16
   (text; dark surface, ~30%), Roast-2 #2A201B, Bark #5A4A40 (secondary text
-  on light), Chaff #C9B8A2 (secondary text on dark), Green #4F7A3B (period
-  and nodes only, under 2%), Ember #E8A33C (see below). Hairlines: #DCCFBB
+  on light), Chaff #C9B8A2 (secondary text on dark), Green #4F7A3B (the wordmark's
+  bean and the nodes only, under 2%), Ember #E8A33C (see below). Hairlines: #DCCFBB
   on light, #4A3C33 on dark.
 - **Green is never text, never a button, never a background.** It passes 3.0
   as a graphic on every surface except Chaff; it fails 4.5 as text
@@ -217,7 +217,17 @@ Source of truth: `rooted-tokens.css` (v1.1). Paste it unchanged. Summary:
 
 `rooted-logo-primary.svg`, `-primary-dark.svg`, `-mono.svg`,
 `rooted-logo-stacked.svg`, `rooted-spine.svg`, `rooted-mark-24.svg`,
-`rooted-favicon.svg`. Wordmark is lowercase with a period, always. Clear
+`rooted-favicon.svg`. Wordmark is lowercase and ends in **the bean**, always.
+**The bean (Oct 2026, Darryl's choice of option B):** the wordmark's period
+is a raw green coffee bean — green because green is coffee before it is
+roasted. One geometry everywhere: viewBox 0 0 100 130, ellipse rx 44 ry 52
+rotated -12°, crease `M50,16 Q43,65 50,114` stroke 6 as a mask (so the
+crease shows the surface beneath). On pages: inline SVG `.bean` (.208em ×
+.27em, sitting on the baseline) inside `.dot`, plus a visually hidden `.`
+so copy-paste and screen readers still get "rooted." In the logo SVGs it
+is a positioned group after the text. Never type a period in its place,
+never a roasted (brown) bean. The `.gp` green periods ending the vision and
+sign-off lines stay ordinary periods. Clear
 space = height of the o. Minimum 24px; below that use the mark. Never retype
 the wordmark; on pages it is live text (`.wm`) on Fraunces with the kit's
 exact axes.
@@ -327,8 +337,8 @@ Unsplash license needs no attribution; credits recorded here anyway.
 ## Print masters
 
 `rooted-card.html` is the business card (3.5in x 2in trim; full-bleed
-3.75in x 2.25in). Front is the bag front: wordmark, name in the origin-line
-italic, FOUNDER, PASTOR title line, Courier contact block, tagline bottom
+3.75in x 2.25in). Front is the bag front: wordmark with the bean, name in the
+origin-line italic, FOUNDER, PASTOR title line, Courier contact block, tagline bottom
 right. Back is the spine on Roast with rootedclt.org. Regenerate with
 Chromium print-to-PDF at 3.75in x 2.25in, background graphics on, or
 screenshot at device scale 6.25 for 600 DPI PNGs.

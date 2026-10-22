@@ -21,7 +21,7 @@
   --chaff:   #C9B8A2;  /* secondary text on dark.       Chaff on Roast 8.85, on Roast-2 8.22 */
   --paper:   #F5EFE4;  /* light surface; the bag.       Roast on Paper 14.95 */
   --paper-2: #EDE4D5;  /* second light surface.         Roast on Paper-2 13.57 */
-  --green:   #4F7A3B;  /* the period. the nodes. never text.
+  --green:   #4F7A3B;  /* the bean (the wordmark's period). the nodes. never text.
                           Green on Paper 4.39, on Paper-2 3.99, on Roast 3.41, on Roast-2 3.16 (graphic, 3.0) */
   --rule-light: #DCCFBB; /* hairline rules on Paper */
   --rule-dark:  #4A3C33; /* hairline rules on Roast */
@@ -81,7 +81,8 @@
   /* ---- Radius and border policy, stated as a rule ----
      If it is not a node, it is not round.
      Every corner in the system is square: buttons, fields, cards, photographs, tables.
-     The only round shape is the node (and the period), which is a circle.
+     The only round shapes are the node, which is a circle, and the bean that
+     ends the wordmark.
      Borders are 1px hairlines in --rule; emphasis borders are 1px in --text.
      No drop shadows. Depth is a change of surface (Paper to Paper-2) or a hairline. */
   --radius: 0;
@@ -115,6 +116,8 @@
   :root { --dur: 0ms; }
 }
 
+.wm .bean { display: inline-block; width: .208em; height: .27em; vertical-align: baseline; margin-left: .015em; }
+.vh { display: inline-block; width: 0; overflow: hidden; vertical-align: baseline; }
 </style>
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
@@ -191,7 +194,7 @@
 
 <section>
   <div class="label">rooted. brand kit · v1.0 · August 2026 · direction: Cup</div>
-  <div class="wm" style="font-size:clamp(4rem,14vw,9rem);margin:var(--s-6) 0">rooted<span class="dot">.</span></div>
+  <div class="wm" style="font-size:clamp(4rem,14vw,9rem);margin:var(--s-6) 0">rooted<span class="dot"><svg class="bean" viewBox="0 0 100 130" aria-hidden="true" focusable="false"><defs><mask id="bean-h-1"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="currentColor" mask="url(#bean-h-1)" transform="rotate(-12 50 65)"/></svg><span class="vh">.</span></span></div>
   <h1 style="max-width:18ch">Good work. Good coffee. Good news.</h1>
   <p style="margin-top:var(--s-6)">rooted is a neighborhood enterprise in South Charlotte. We roast coffee, we hire and train neighbors to do the work, and the people who live here help run it. Most of the people we hire have been through the justice system. We hire them as roasters, and roaster is the job title.</p>
   <p class="small">That paragraph is the brand in one place. The last two sentences are the fixed wording for naming the justice system: same words on the bag, the site, and the grant packet. Do not paraphrase them.</p>
@@ -199,7 +202,7 @@
 
 <section id="palette">
   <h2>Palette</h2>
-  <p>Seven colors and two hairlines. Paper is most of every page. Roast is the ink and the dark set. Green is the period and the nodes, and nothing else. It is never text, never a button, never a background.</p>
+  <p>Seven colors and two hairlines. Paper is most of every page. Roast is the ink and the dark set. Green is the bean that ends the wordmark and the nodes, and nothing else. It is never text, never a button, never a background.</p>
   <div class="grid" style="margin-top:var(--s-8)">
     <div class="c6">
       <div class="label" style="margin-bottom:var(--s-2)">Light set · default</div>
@@ -221,7 +224,7 @@
     </div>
     <div class="c4">
       <div class="pal" style="grid-template-columns:1fr">
-        <div class="sw" style="background:#4F7A3B;color:#F5EFE4;min-height:120px"><div class="n">Green</div><div class="log">#4F7A3B<br>the period, the nodes · under 2%</div></div>
+        <div class="sw" style="background:#4F7A3B;color:#F5EFE4;min-height:120px"><div class="n">Green</div><div class="log">#4F7A3B<br>the bean, the nodes · under 2%</div></div>
       </div>
     </div>
     <div class="c8">
@@ -235,7 +238,7 @@
         <tr><td>Paper on Roast-2</td><td>13.89</td><td class="pass">text</td><td>dark set, second surface</td></tr>
         <tr><td>Chaff on Roast</td><td>8.85</td><td class="pass">text</td><td>dark set captions</td></tr>
         <tr><td>Chaff on Roast-2</td><td>8.22</td><td class="pass">text</td><td>dark set captions, second surface</td></tr>
-        <tr><td>Green on Paper</td><td>4.39</td><td class="pass">graphic (3.0)</td><td>period, nodes, focus ring. Fails 4.5, so never text.</td></tr>
+        <tr><td>Green on Paper</td><td>4.39</td><td class="pass">graphic (3.0)</td><td>bean, nodes, focus ring. Fails 4.5, so never text.</td></tr>
         <tr><td>Green on Paper-2</td><td>3.99</td><td class="pass">graphic</td><td>same</td></tr>
         <tr><td>Green on Roast</td><td>3.41</td><td class="pass">graphic</td><td>same, dark set</td></tr>
         <tr><td>Green on Roast-2</td><td>3.16</td><td class="pass">graphic</td><td>same, dark set second surface</td></tr>
@@ -264,22 +267,22 @@
 
 <section id="logo">
   <h2>Wordmark and logo suite</h2>
-  <p>Lowercase, with a period. The period is green in the primary and dark versions and matches the text in single-color use. Clear space on every side is the height of the o. Minimum size is 24px on screen and 8mm in print. There is no lettermark yet; the small-application mark is the taproot with one node, which needs no font and reads at 16px.</p>
+  <p>Lowercase, ending in a raw coffee bean where the period would be. The bean is green, the color of coffee before it is roasted, in the primary and dark versions, and matches the text in single-color use. Never type a period in its place. Clear space on every side is the height of the o. Minimum size is 24px on screen and 8mm in print. There is no lettermark yet; the small-application mark is the taproot with one node, which needs no font and reads at 16px.</p>
   <div class="logos" style="margin-top:var(--s-8)">
     <div class="box"><div class="label">Primary · Roast on Paper</div>
-      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#221A16" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted<tspan fill="#4F7A3B">.</tspan></text></svg>
+      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#221A16" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted</text><g transform="translate(294.84 65.76) scale(0.23262)"><defs><mask id="bean-s-1"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="#4F7A3B" mask="url(#bean-s-1)" transform="rotate(-12 50 65)"/></g></svg>
       <div class="small">rooted-logo-primary.svg</div></div>
     <div class="box" data-theme="dark"><div class="label">Primary · dark set</div>
-      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#F5EFE4" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted<tspan fill="#4F7A3B">.</tspan></text></svg>
+      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#F5EFE4" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted</text><g transform="translate(294.84 65.76) scale(0.23262)"><defs><mask id="bean-s-2"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="#4F7A3B" mask="url(#bean-s-2)" transform="rotate(-12 50 65)"/></g></svg>
       <div class="small">rooted-logo-primary-dark.svg</div></div>
     <div class="box"><div class="label">Single color · inherits any one ink</div>
-      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#5A4A40" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted.</text></svg>
+      <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#5A4A40" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted</text><g transform="translate(294.84 65.76) scale(0.23262)"><defs><mask id="bean-s-3"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="#5A4A40" mask="url(#bean-s-3)" transform="rotate(-12 50 65)"/></g></svg>
       <div class="small">rooted-logo-mono.svg · shown in Bark. Use for stamps, embossing, one-color print, and whenever green cannot be printed accurately.</div></div>
     <div class="box"><div class="label">Stacked · with spine and tagline</div>
-      <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#221A16" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted<tspan fill="#4F7A3B">.</tspan></text><line x1="1" y1="132" x2="519" y2="132" stroke="#221A16" stroke-width="1.5"/><circle cx="8" cy="132" r="5.5" fill="#4F7A3B"/><circle cx="260" cy="132" r="5.5" fill="#4F7A3B"/><circle cx="512" cy="132" r="5.5" fill="#4F7A3B"/><text x="0" y="176" fill="#221A16" style="font-family:var(--font-label);font-size:17px;letter-spacing:.02em">Good work. Good coffee. Good news.</text></svg>
+      <svg viewBox="0 0 520 220" xmlns="http://www.w3.org/2000/svg"><text x="0" y="96" font-size="112" letter-spacing="-1" fill="#221A16" style="font-family:var(--font-display);font-variation-settings:'opsz' 144,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted</text><g transform="translate(294.84 65.76) scale(0.23262)"><defs><mask id="bean-s-4"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="#4F7A3B" mask="url(#bean-s-4)" transform="rotate(-12 50 65)"/></g><line x1="1" y1="132" x2="519" y2="132" stroke="#221A16" stroke-width="1.5"/><circle cx="8" cy="132" r="5.5" fill="#4F7A3B"/><circle cx="260" cy="132" r="5.5" fill="#4F7A3B"/><circle cx="512" cy="132" r="5.5" fill="#4F7A3B"/><text x="0" y="176" fill="#221A16" style="font-family:var(--font-label);font-size:17px;letter-spacing:.02em">Good work. Good coffee. Good news.</text></svg>
       <div class="small">rooted-logo-stacked.svg · letterhead, tote, the back of the bag</div></div>
     <div class="box c12" style="grid-column:span 2"><div class="label">Bag spine · shelf-facing</div>
-      <svg viewBox="0 0 600 64" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="64" fill="#221A16"/><text x="20" y="41" font-size="28" fill="#F5EFE4" style="font-family:var(--font-display);font-variation-settings:'opsz' 36,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted<tspan fill="#4F7A3B">.</tspan></text><line x1="130" y1="32" x2="430" y2="32" stroke="#F5EFE4" stroke-opacity=".5"/><circle cx="190" cy="32" r="4" fill="#4F7A3B"/><circle cx="280" cy="32" r="4" fill="#4F7A3B"/><circle cx="370" cy="32" r="4" fill="#4F7A3B"/><text x="446" y="36" fill="#C9B8A2" style="font-family:var(--font-label);font-size:11px;letter-spacing:.08em;text-transform:uppercase">Peru · washed · 340g</text></svg>
+      <svg viewBox="0 0 600 64" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="64" fill="#221A16"/><text x="20" y="41" font-size="28" fill="#F5EFE4" style="font-family:var(--font-display);font-variation-settings:'opsz' 36,'wght' 600,'SOFT' 100,'WONK' 1;font-weight:600">rooted</text><g transform="translate(108.72 33.44) scale(0.05815)"><defs><mask id="bean-s-5"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="#4F7A3B" mask="url(#bean-s-5)" transform="rotate(-12 50 65)"/></g><line x1="130" y1="32" x2="430" y2="32" stroke="#F5EFE4" stroke-opacity=".5"/><circle cx="190" cy="32" r="4" fill="#4F7A3B"/><circle cx="280" cy="32" r="4" fill="#4F7A3B"/><circle cx="370" cy="32" r="4" fill="#4F7A3B"/><text x="446" y="36" fill="#C9B8A2" style="font-family:var(--font-label);font-size:11px;letter-spacing:.08em;text-transform:uppercase">Peru · washed · 340g</text></svg>
       <div class="small">rooted-spine.svg · the right-hand label changes per lot</div></div>
     <div class="box"><div class="label">Small-application mark · 24px · and favicon · 32px</div>
       <div style="display:flex;gap:var(--s-8);align-items:center;flex-wrap:wrap">
@@ -292,8 +295,8 @@
       <div class="small">rooted-mark-24.svg · rooted-favicon.svg. Social avatars, app icons, the stamp on a subscription box.</div></div>
     <div class="box"><div class="label">Wordmark at 24px</div>
       <div style="display:flex;gap:var(--s-8);align-items:baseline;flex-wrap:wrap">
-        <span class="wm" style="font-size:24px;font-variation-settings:'opsz' 24,'wght' 600,'SOFT' 100,'WONK' 1">rooted<span class="dot">.</span></span>
-        <span class="wm" style="font-size:24px;font-variation-settings:'opsz' 24,'wght' 600,'SOFT' 100,'WONK' 1;background:#221A16;color:#F5EFE4;padding:6px 10px">rooted<span class="dot">.</span></span>
+        <span class="wm" style="font-size:24px;font-variation-settings:'opsz' 24,'wght' 600,'SOFT' 100,'WONK' 1">rooted<span class="dot"><svg class="bean" viewBox="0 0 100 130" aria-hidden="true" focusable="false"><defs><mask id="bean-h-2"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="currentColor" mask="url(#bean-h-2)" transform="rotate(-12 50 65)"/></svg><span class="vh">.</span></span></span>
+        <span class="wm" style="font-size:24px;font-variation-settings:'opsz' 24,'wght' 600,'SOFT' 100,'WONK' 1;background:#221A16;color:#F5EFE4;padding:6px 10px">rooted<span class="dot"><svg class="bean" viewBox="0 0 100 130" aria-hidden="true" focusable="false"><defs><mask id="bean-h-3"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="currentColor" mask="url(#bean-h-3)" transform="rotate(-12 50 65)"/></svg><span class="vh">.</span></span></span>
       </div>
       <div class="small">Below 24px use the mark, not the wordmark.</div></div>
   </div>
@@ -351,7 +354,7 @@
       <div class="label" style="margin-bottom:var(--s-3)">Dark set</div>
       <div style="display:flex;gap:var(--s-3);flex-wrap:wrap;margin-bottom:var(--s-4)"><a class="btn" href="#">Join the waitlist</a><a class="btn secondary" href="#">Open an account</a></div>
       <input class="field" placeholder="Email">
-      <p class="small" style="margin-top:var(--s-3)">Same tokens, flipped. Green still only appears as the focus ring and the period.</p>
+      <p class="small" style="margin-top:var(--s-3)">Same tokens, flipped. Green still only appears as the focus ring and the bean.</p>
     </div>
   </div>
 </section>
@@ -361,7 +364,7 @@
   <div class="grid">
     <div class="c4"><div class="bag">
       <div class="valve"></div>
-      <div class="wm bwm">rooted<span class="dot">.</span></div>
+      <div class="wm bwm">rooted<span class="dot"><svg class="bean" viewBox="0 0 100 130" aria-hidden="true" focusable="false"><defs><mask id="bean-h-4"><rect width="100" height="130" fill="#fff"/><path d="M50,16 Q43,65 50,114" fill="none" stroke="#000" stroke-width="6" stroke-linecap="round" transform="rotate(-12 50 65)"/></mask></defs><ellipse cx="50" cy="65" rx="44" ry="52" fill="currentColor" mask="url(#bean-h-4)" transform="rotate(-12 50 65)"/></svg><span class="vh">.</span></span></div>
       <div class="origin">Cajamarca, Peru<br>washed · medium</div>
       <div class="bspine"></div>
       <div class="bn" style="top:180px"></div><div class="bl" style="top:178px"><span class="k">Origin</span>Cajamarca, Peru</div>
